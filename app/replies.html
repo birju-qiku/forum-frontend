@@ -1,0 +1,25 @@
+<div ng-controller="RepliesController as replies">
+	<!-- comment section goes here -->
+	<!--1st comment -->
+	<h2 style="padding-left:15px">{{replies.threadDetails.title}}</h2>
+	<div class="content comment-outer" ng-repeat="reply in replies.replies">
+			<div class="comment-inner-left">
+				<img src="http://img12.deviantart.net/daf4/i/2008/255/a/f/avatar_icon_by_pharaun_mizzrym.jpg"/>
+				<h5 class="userText">
+					<a href="#" class="username">birju112</a>
+					<em class="userTitle">Level: test</em>
+					</h5>
+			</div>
+			<div class="comment-inner-right">
+				<p dynamichtml="reply.desc" class="non-quoted"></p>
+				<div>
+					<ul>
+						<li class="pull-right ">Like</li>
+						<li style="cursor:pointer" ng-click="replies.fillReply(reply.desc,reply.posted_by)" class="pull-right comment-width-65">Reply</li>
+					</ul>
+				</div>
+			</div>
+	 </div>
+	 <textarea ng-model="replies.reply" id="replyToThread"></textarea>
+	 <button ng-disabled='replies.replyDisabled' ng-click="replies.postReply()" class="normal-red-btn">Reply</button>
+</div>

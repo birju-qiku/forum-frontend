@@ -1,0 +1,475 @@
+#qiku-login-header{
+	background-color: #ffffff;
+	height:60px;
+	width: 100%;
+}
+#qiku-logo{
+	padding: 20px 0 0 20px;
+	width: 100px;
+	float: left;
+}
+.qiku-nav{
+	float: right;
+	padding: 20px 20px 0 0;
+}
+.qiku-nav ul li{
+	list-style: none;
+	float: left;
+	color:#ef0021;
+	padding-left: 10px;
+}
+/* SIGNUP and login BUTTON GOES here */
+.qiku-nav ul li a.loginbutton 
+{
+	background: #ffffff;
+	color: #eb5b5f;
+	padding: 3px;
+	border-radius: 3px;
+	font-size: 12px;
+	margin-right: 10px;
+	display: block;
+}
+.qiku-nav ul li a.signupbutton 
+{
+	background: #eb5b5f;
+	color: #fff;
+	padding: 3px;
+	border-radius: 3px;
+	font-size: 12px;
+	display: block;
+}
+/* ends here */
+.container-forum{
+	height: 100%;
+	/*overflow-y:scroll;*/
+}
+.container-forum::after{
+	content: "";
+    background-color: #000000;
+	opacity: 0.3;
+	top:0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+/* two column main div */
+.main-outer-div
+{
+	width:100%; 
+	height:100%;  
+	/*padding:40px;*/
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #FFF;
+	overflow: hidden;
+}
+/* ends here */
+/*search panel goes here*/
+.banner-search
+{
+	background:url('../img/qiku-login-bg.png')  no-repeat center center fixed;
+	position: relative;
+	height: 179px;
+}
+.search-layer
+{
+	background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#search_box {
+	padding:40px;
+	width:75%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+#search_box .wrapper {
+	background:#fff;
+	padding:1px 0 1px 8px;
+	position:relative;
+}
+#search_box input { border:none; color:#333; width:90%; height: 34px; }
+#search_box input:focus { border:1px solid #fff !important; color:#333; width:90%; outline: 0; padding: 0px 0px 0px 0px;margin: 0px 0px 0px 0px;}
+#search_box input[type=text]:focus {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+#search_box button {
+	cursor:pointer;
+	height:37.5px;
+	position:absolute;
+	right:0px;
+	top:0px;
+	width:70px;
+	background-color: #eb5b5f !important;
+	color: #fff !important;
+	outline: 0;
+	font-size: 20px;
+}
+.submenu-search
+{
+	color:#fff;
+	margin-left:auto; 
+	margin-right:auto; 
+	display:block; 
+	width:75%; 
+	text-align:center; 
+	font-size:12px;
+}
+/*search panel code ends here*/
+/* left column styling goes here */
+.left-main-div
+{
+	float:left; 
+	width:70%; 
+	margin-left:3%;
+	margin-right:3%; 
+	background-color:#fff;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4); 
+   -moz-box-shadow: 0px 1px 3px rgba(23, 69, 88, .5);
+}
+/* tabs section css goes here */
+.tabs {
+    position: relative;
+	width: 100%;
+}
+
+.tabs li {list-style: none;}
+.tabs li:first-child > a{
+	background: #ffffff;
+	color: #eb5b5f;
+}
+.tabs li a {
+	background: #eb5b5f;
+	font-size: 15px;
+	line-height: 40px;
+	height: 40px;
+	position: relative;
+	padding: 0 20px;
+    float: left;
+	display: block;
+	width: 66.5px;
+	color: #ffffff;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+}
+
+.tabs li a:after {
+    content: '';
+	background: #fff;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	display: block;
+}
+
+.tabs  li a:hover  {
+	background: #d7484f;
+	-webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+
+}
+
+.clear-shadow {
+	clear: both;
+}
+
+.content {
+    background: #fff;
+	position: relative;
+    width: 100%;
+	height: auto;
+	/*z-index: 5;*/
+	overflow: hidden;
+}
+
+/* ends here */
+/* inner chats or comment section goes here */
+.comment-outer
+{
+	width:96%; 
+	margin-left:2%; 
+	margin-right:2%; 
+	margin-top:1%; 
+	margin-bottom:1%;
+	font-weight: bold;
+	font-size: 12px;
+}
+.comment-inner-left
+{
+	float:left; 
+	width:15%; 
+	margin-top:1%;
+}
+.comment-inner-left img
+{
+	width:40px; 
+	height:40px; 
+	border-radius:50%; 
+	margin-left:auto; 
+	margin-right:auto; 
+	display:block;
+}
+.comment-inner-left h5
+{
+	margin-top: 5px !important;
+    margin-bottom: 0px !important;
+}
+.comment-inner-left .userText,.username
+{
+	text-align: center;
+	text-transform: uppercase;
+	color:#eb5b5f;
+	word-wrap: break-word;
+}
+.comment-inner-left .userTitle
+{
+	font-size: 8px;
+	display: block;
+}
+.comment-inner-right
+{
+	float:left; 
+	width:83%;
+	margin-top:1%;
+	margin-right:2%;
+	border-bottom: 1px solid #EDEDED;
+}
+.comment-inner-right h2
+{
+	margin-top:0px !important; 
+	margin-bottom:10px !important; 
+	color:#333;
+}
+/* secondary page content styling goes here */
+.comment-inner-right p
+{
+    margin-top: 0px !important;
+    margin-bottom:10px !important;
+    font-weight: normal !important;
+}
+.comment-inner-right .quoted
+{
+	min-height:75px;
+    background-color: #dedede;
+    padding: 10px;
+    font-weight: normal !important;
+}
+.comment-inner-right .non-quoted
+{
+	min-height:75px;
+    /*padding: 10px;*/
+    font-weight: normal !important;
+}
+/* secondary page attachments code goes here */
+.comment-inner-right .attachment-panel
+{
+	min-height: 90px;
+    background-color: #dedede;
+    margin-top: 0px !important;
+    margin-bottom:10px !important;
+}
+.attachment-panel h3
+{
+	background-color: #CCC;
+    padding: 2px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-left: 13px;
+}
+.attachment-panel .boxModelFixer {
+    overflow: hidden;
+    zoom: 1;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    background-color: rgb(255,255,255);
+    border: 1px solid #DAD8D6;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 25% !important;
+}
+.attachment-panel .thumbnail {
+    float: left;
+    border-right: 1px solid #DAD8D6;
+    padding-right: 5px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.attachment-panel .attachmentInfo {
+    white-space: nowrap;
+    overflow: hidden;
+    zoom: 1;
+    font-size: 11px;
+    padding-left: 5px;
+}
+.attachment-panel .attachmentInfo dl{
+	    margin-top: 0px !important;
+       margin-bottom: 0px !important;
+}
+.attachment-panel .attachmentInfo  dt{
+display: inline-block !important;
+}
+.attachment-panel .attachmentInfo  dd{
+    display: inline-block;
+    -webkit-margin-start: 0px !important;
+}
+.attachment-panel .attachmentInfo .filename {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.attachment-panel .attachmentInfo .filename a{
+	font-size: 12px;
+	color: #ef0021;
+}
+/* ends here */
+/* ends here */
+.comment-inner-right ul li
+{
+	float:left; 
+	color:#eb5b5f; 
+	height:25px; 
+	line-height:25px; 
+	margin-bottom: 15px;
+}
+.comment-width-65
+{
+	width: 65px !important;
+}
+.comment-inner-right .yellow-button-view
+{
+	float:left; 
+	color:#eb5b5f; 
+	height:25px; 
+	line-height:25px;
+	background-color:#FFC549;
+	padding-left:5px; 
+	padding-right:5px;
+}
+.comment-inner-right .blue-button-view
+{
+	float:left; 
+	color:#fff; 
+	height:25px; 
+	line-height:25px;
+	background-color:#04AED8;
+	padding-left:5px; 
+	padding-right:5px;
+}
+.comment-inner-right ul li .post-time
+{
+	float:right;
+	height:25px; 
+	line-height:25px;
+}
+/* ends here */
+/* left column ends here */
+/* right column styling goes here */
+.right-main-div
+{
+	float:left; 
+	width:20%; 
+	background-color:#fff; m
+	margin-right:5%;
+}
+/*360 cta goes here */
+.right-cta-360 a
+{
+   background-color: #eb5b5f;
+   height: 45px;
+   line-height: 45px;
+   text-align: center;
+   color: #fff;
+   text-decoration: none;
+   display: block;
+   text-transform: uppercase;
+}
+/*ends here */
+/* first category code goes here */
+.panel-category
+{
+	width: 100%;
+	background-color: #fff;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4); 
+   -moz-box-shadow: 0px 1px 3px rgba(23, 69, 88, .5);
+   margin-top: 20px;
+}
+.panel-category-header
+{
+	background-color: #282e37;
+	color:#ffffff;
+	height:35px;
+	line-height: 35px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.panel-category-body ul
+{
+	padding-bottom: 16px;
+}
+.panel-category-body li
+{
+	padding:16px;
+	color:#aaabae;
+}
+#replyToThread{
+	height:150px;
+}
+.wysibb{
+	margin: 10px 10px;
+}
+button.normal-red-btn{
+	background-color: #eb5b5f;
+	height: 30px;
+	width: 100px;
+	color: #ffffff;
+	margin: 10px;
+}
+.non-quoted img{
+	max-width: 100%
+}
+.new-thread-title{
+	width: 96%;
+	margin-left: 10px;
+	margin-top: 10px;
+	padding-left: 10px;
+}
+#newThread{
+	height:200px;
+}
+/* ends here */
+/* right column ends here */
+@media screen and (max-width: 768px)
+{
+	/* two column main div */
+.main-outer-div
+{
+	 padding: 0px !important;
+}
+	/* drop class for two coloumn design */
+	.Drop { float: left; width: 100%;}
+
+}
+

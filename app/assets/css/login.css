@@ -1,0 +1,85 @@
+#qiku-login-header{
+	background-color: #ffffff;
+	height:60px;
+}
+#qiku-logo{
+	padding: 20px 0 0 20px;
+	width: 100px;
+	float: left;
+}
+.qiku-nav{
+	float: right;
+	padding: 20px 20px 0 0;
+}
+.qiku-nav ul li{
+	list-style: none;
+	float: left;
+	color:#ef0021;
+	padding-left: 10px;
+}
+.qiku-nav ul li a{
+	color:#ef0021;
+}
+.container{
+	height: 100%;
+}
+.container::after{
+	content: "";
+	background:url('../img/qiku-login-bg.png')  no-repeat center center fixed;
+	background-size: cover;
+	opacity: 0.3;
+	top:0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+#qiku-login ul li a{
+	float: left;
+	width:50%;
+	background-color: #eb5b5f;
+	height:45px;
+	display: block;
+	text-align: center;
+	line-height: 45px;
+	color:#ffffff;
+}
+#qiku-login ul li a:hover{
+	background-color: #ffffff;
+	color:#eb5b5f;
+	}
+
+#qiku-login-form{
+	max-width:400px;
+	margin: 0 auto;
+	margin-top: 75px;
+	min-height: 255px;
+	background-color: #ffffff;
+}
+.qiku-login-btn{
+	display: block;
+	width: 90%;
+	background-color: #eb5b5f;
+	border: none;
+	margin: 0 auto;
+	height: 35px;
+	color: #ffffff;
+	margin-top: 20px;
+}
+#qiku-login-form input{
+	display: block;
+	margin: 0 auto;
+	width: 85%;
+	margin-top: 20px;
+	padding-left: 20px;
+	outline: 0;
+}
+.copyright-text
+{
+	padding-left: 10px;
+}
+.footer-link-text
+{
+	padding-right: 10px;
+}

@@ -1,0 +1,21 @@
+<div class="content comment-outer" ng-repeat="thread in forum.threads | orderBy:'-created_at'">
+	<div class="comment-inner-left">
+		<!--<img ng-src="{{thread.posted_by_image}}" onError="this.src='/assets/img/noimage.jpg'" / >-->
+		<img src='app/assets/img/noimage.jpg' / >
+		<h5 class="userText">
+			<a href="#" class="username">{{thread.posted_by}}</a>
+			<em class="userTitle">Level: Mercury</em>
+		</h5>
+	</div>
+	<div class="comment-inner-right">
+		<a ng-click="forum.trackRoute(thread.title,thread._id)" href="/replies/{{thread.link}}"><h2>{{thread.title}}</h2> </a>
+		<div>
+			<ul>
+				<li class="comment-width-65"><i class="fa fa-eye"></i> 21</li>
+				<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> 21</li>
+				<li class="yellow-button-view">{{thread.category}}</li>
+				<li class="pull-right">{{thread.created_at | date:'mediumDate'}} | {{thread.created_at | date:'shortTime'}}</li>
+			</ul>
+		</div>
+	</div>
+</div>

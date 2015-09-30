@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="qiku">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/app/bower_components/normalize.css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="/app/assets/css/general.css">
+		<link rel="stylesheet" type="text/css" href="/app/assets/css/login.css">
+		<link rel="stylesheet" type="text/css" href="/app/assets/css/forum.css">
+		<base href="/">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" />
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<header id="qiku-login-header" class="group">
+					<div id="qiku-logo">
+						<img src="/app/assets/img/qiku-logo.png" alt="Quiku"/>
+					</div>
+					<nav class="qiku-nav">
+						<ul>
+							<li><a href="/login">ABOUT</a></li>
+							<li>FAQ</li>
+							<li>CONTACT</li>
+						</ul>
+					</nav>
+				</header>
+				<div ui-view></div>
+				<footer>
+					<div class="pull-left copyright-text">Copyright Qiku 2015</div>
+					<div class="pull-right footer-link-text">Other information</div>
+				</footer>
+			</div>
+		</main>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
+		<script type="text/javascript" src="/app/bower_components/angular/angular.js"></script>
+		<!--<script type="text/javascript" src="/app/bower_components/angular-route/angular-route.js"></script> -->
+		<script type="text/javascript" src="/app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script type="text/javascript" src="/app/app.js"></script>
+		<script type="text/javascript" src="/app/services/common.js"></script>
+		<script type="text/javascript" src="/app/controller/ForumController.js"></script>
+		<script type="text/javascript" src="/app/controller/LoginController.js"></script>
+		<script type="text/javascript" src="/app/controller/SignupController.js"></script>
+		<script type="text/javascript" src="/app/controller/RepliesController.js"></script>
+		<script type="text/javascript" src="/app/controller/NewThreadController.js"></script>
+	</body>
+</html>

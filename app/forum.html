@@ -1,0 +1,113 @@
+<section ng-controller="ForumController as forum">
+	<!-- code section search bar -->
+		<div>
+				<div class="banner-search">
+						<div class="search-layer">
+								<div class="search-panel">
+									<form action="#" id="search_box">
+										<div class="wrapper">
+											 <input type="text" id="search" name="search" placeholder="" />
+										 <button type="submit" class="search_btn"><i class="fa fa-search"></i>
+										 </button>
+										</div>
+									</form>
+
+								</div>
+								<!-- 2-->
+								<div class="submenu-search"> SOME STATISTICS HERE | SOME DATA HERE | IF REQUIRED 
+								</div>
+						</div>
+				</div>
+		</div>
+	<!-- ends here -->
+	<!-- code section outer div -->
+		<div class="main-outer-div">
+			<!--left side div -->
+			<div class="left-main-div Drop">
+				<!--tabs view goes here -->
+				<section class="tabs">
+					<ul>
+			        <li for="tab-1" class="tab-label-1"><a thread-panel-color class="panel-color-toggle" href="/"><i class="fa fa-firefox"></i> HOT</a></li>
+			        <li for="tab-2" class="tab-label-2"><a thread-panel-color class="panel-color-toggle" ui-sref="home.latest"><i class="fa fa-bolt"></i> LATEST</a></li>
+			        <li for="tab-3" class="tab-label-3"><a thread-panel-color class="panel-color-toggle" ui-sref="home.all"><i class="fa fa-stack-exchange"></i> ALL</a></li>
+					</ul>
+	            
+				    <div class="clear-shadow"></div>
+					<!-- comment section goes here -->
+					<!--1st comment -->
+					<div ui-view>
+						<div class="content comment-outer" ng-repeat="thread in forum.threads">
+								<div class="comment-inner-left">
+									<!--<img ng-src="{{thread.posted_by_image}}" onError="this.src='/assets/img/noimage.jpg'" / >-->
+									<img src='app/assets/img/noimage.jpg' / >
+									<h5 class="userText">
+										<a href="#" class="username">{{thread.posted_by}}</a>
+										<em class="userTitle">Level: Mercury</em>
+									</h5>
+								</div>
+								<div class="comment-inner-right">
+									<a ng-href="{{forum.$state.href('home.replies',{id:thread.link})}}"><h2>{{thread.title}}</h2> </a>
+									<div>
+										<ul>
+											<li class="comment-width-65"><i class="fa fa-eye"></i> 21</li>
+											<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> 21</li>
+											<li class="yellow-button-view">{{thread.category}}</li>
+											<li class="pull-right">{{thread.created_at | date:'mediumDate'}} | {{thread.created_at | date:'shortTime'}}</li>
+										</ul>
+									</div>
+								</div>
+					    </div>
+				 	</div>
+				</section>
+				<!-- ends here -->
+
+			</div>
+			<!--left div ends here -->
+			<!--right side div -->
+			<div class="right-main-div Drop">
+				<!-- cta 360 -->
+				<div class="right-cta-360">
+					<a ui-sref="home.newThread">New Thread</a>
+				</div>
+				<!--cta ends here -->
+				<!--first category goes here -->
+				<div class="panel-category">
+					<div class="panel-category-header">categories</div>
+					<div class="panel-category-body">
+						<ul>
+							<li><span class="pull-left">Category 1</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 2</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 3</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 4</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 5</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 6</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 7</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 8</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 9</span> <span class="pull-right">120</span></li>
+						</ul>
+					</div>
+				</div>
+			<!--first category ends here -->
+			<!--second category goes here -->
+				<div class="panel-category">
+					<div class="panel-category-header">some field here</div>
+					<div class="panel-category-body">
+						<ul>
+							<li><span class="pull-left">Category 1</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 2</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 3</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 4</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 5</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 6</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 7</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 8</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Category 9</span> <span class="pull-right">120</span></li>
+						</ul>
+					</div>
+				</div>
+			<!--second category ends here -->
+		</div>
+			<!--ends here -->
+		</div>
+	<!-- outer div ends here -->
+</section>
