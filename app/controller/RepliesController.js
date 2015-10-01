@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku').controller('RepliesController',repliesController);
-	repliesController.$inject = ['$scope','$http','$q','$stateParams'];
-	function repliesController($scope,$http,$q,$stateParams){
+	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl'];
+	function repliesController($scope,$http,$q,$stateParams,apiUrl){
 		var rc = this
 		rc.postReply = function(){
 			rc.replyDisabled = true;
@@ -32,7 +32,7 @@
 		//get route param fetch and create a promise :)
 		function getThreadId(){
 			return $q(function(resolve,reject){
-				$http.get('http://localhost:8080/thread-by-link/'+$stateParams.id).success(function(data){
+				$http.get(apiUrl+'/thread-by-link/'+$stateParams.id).success(function(data){
 					rc.threadDetails = data;
 					resolve();
 				})
@@ -40,7 +40,7 @@
 		}
 		var getThreadPromise = getThreadId();
 		getThreadPromise.then(function(){
-			$http.get('http://localhost:8080/reply/'+rc.threadDetails._id+'?limit=10&offset=0').success(function(data){
+			$http.get(apiUrl+'/reply/'+rc.threadDetails._id+'?limit=10&offset=0').success(function(data){
 				rc.replies = data.replies;
 			})
 		})

@@ -1,6 +1,6 @@
 (function(){
 	angular.module('qiku').controller('NewThreadController',newThreadController);
-	newThreadController.$inject = ['$scope','$http','$state'];
+	newThreadController.$inject = ['$scope','$http','$state','apiUrl'];
 	function newThreadController($scope,$http,$state){
 		var nt = this;
 		nt.category="general";
@@ -12,7 +12,7 @@
 				posted_by_id:'5600fd78f401d1101a4f4eed',
 				category:nt.category
 			}
-			$http.post('http://localhost:8080/thread',obj).success(function(){
+			$http.post(apiUrl+'/thread',obj).success(function(){
 				$state.go('home');
 			})
 		}
@@ -23,4 +23,4 @@
 		  $("#newThread").wysibb(wbbOpt);
 		})
 	}
-})();
+})();	

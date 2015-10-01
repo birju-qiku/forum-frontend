@@ -1,6 +1,7 @@
 (function(){
 	angular.module('qiku', ['ui.router'])
 	.config(routers)
+	.constant('apiUrl','http://52.24.19.52:8080');
 	routers.$inject = ['$stateProvider','$urlRouterProvider','$locationProvider'];
 	function routers($stateProvider, $urlRouterProvider,$locationProvider){
 		$urlRouterProvider.otherwise(function () {
