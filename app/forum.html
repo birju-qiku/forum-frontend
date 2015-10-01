@@ -1,4 +1,4 @@
-<section ng-controller="ForumController as forum">
+<section>
 	<!-- code section search bar -->
 		<div>
 				<div class="banner-search">
@@ -14,7 +14,7 @@
 
 								</div>
 								<!-- 2-->
-								<div class="submenu-search"> SOME STATISTICS HERE | SOME DATA HERE | IF REQUIRED 
+								<div class="submenu-search"> POSTS : 570 | USERS : 250 | ONLINE : 55 
 								</div>
 						</div>
 				</div>
@@ -36,7 +36,7 @@
 					<!-- comment section goes here -->
 					<!--1st comment -->
 					<div ui-view>
-						<div class="content comment-outer" ng-repeat="thread in forum.threads">
+						<div class="content comment-outer" ng-repeat="thread in forum.threads | orderBy:'replyCount'">
 								<div class="comment-inner-left">
 									<!--<img ng-src="{{thread.posted_by_image}}" onError="this.src='/assets/img/noimage.jpg'" / >-->
 									<img src='app/assets/img/noimage.jpg' / >
@@ -49,8 +49,8 @@
 									<a ng-href="{{forum.$state.href('home.replies',{id:thread.link})}}"><h2>{{thread.title}}</h2> </a>
 									<div>
 										<ul>
-											<li class="comment-width-65"><i class="fa fa-eye"></i> 21</li>
-											<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> 21</li>
+											<li class="comment-width-65"><i class="fa fa-eye"></i> {{thread.viewCount}}</li>
+											<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> {{thread.replyCount}}</li>
 											<li class="yellow-button-view">{{thread.category}}</li>
 											<li class="pull-right">{{thread.created_at | date:'mediumDate'}} | {{thread.created_at | date:'shortTime'}}</li>
 										</ul>
@@ -75,37 +75,14 @@
 					<div class="panel-category-header">categories</div>
 					<div class="panel-category-body">
 						<ul>
-							<li><span class="pull-left">Category 1</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 2</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 3</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 4</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 5</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 6</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 7</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 8</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 9</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">General</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Q Terra</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Q Luna</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">Qihoo 360</span> <span class="pull-right">120</span></li>
 						</ul>
 					</div>
 				</div>
 			<!--first category ends here -->
-			<!--second category goes here -->
-				<div class="panel-category">
-					<div class="panel-category-header">some field here</div>
-					<div class="panel-category-body">
-						<ul>
-							<li><span class="pull-left">Category 1</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 2</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 3</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 4</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 5</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 6</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 7</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 8</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Category 9</span> <span class="pull-right">120</span></li>
-						</ul>
-					</div>
-				</div>
-			<!--second category ends here -->
 		</div>
 			<!--ends here -->
 		</div>

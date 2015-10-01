@@ -13,7 +13,7 @@
 				category:nt.category
 			}
 			$http.post(apiUrl+'/thread',obj).success(function(){
-				$state.go('home');
+				$state.go('home.latest');
 			})
 		}
 		var wbbOpt = {

@@ -1,7 +1,8 @@
 (function(){
 	angular.module('qiku', ['ui.router'])
 	.config(routers)
-	.constant('apiUrl','http://52.24.19.52:8080');
+	.constant('apiUrl','http://52.25.132.250:8080');
+	//.constant('apiUrl','http://localhost:8080');
 	routers.$inject = ['$stateProvider','$urlRouterProvider','$locationProvider'];
 	function routers($stateProvider, $urlRouterProvider,$locationProvider){
 		$urlRouterProvider.otherwise(function () {
@@ -10,11 +11,14 @@
 		$stateProvider.state('home', {
 	        url: '/',
 	        templateUrl: '/app/forum.html',
-	        controller: 'ForumController'
+	        controller: 'ForumController',
+	        controllerAs:'forum'
 	    })
 	    .state('home.latest',{
 	    	url:'latest',
-	    	templateUrl:'/app/latest.html'
+	    	templateUrl:'/app/latest.html',
+	    	controller:'ForumController',
+		  	controllerAs:'forum'
 		})
 		.state('home.all',{
 			url:'all',
@@ -31,7 +35,7 @@
 			url: 'replies/:id',
 	    	templateUrl:'/app/replies.html',
 		  	controller:'RepliesController',
-		  	controllerAs:'forum'
+		  	controllerAs:'replies'
 		})
 		.state('login',{
 	    	templateUrl: '/app/login.html',

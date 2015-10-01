@@ -11,7 +11,7 @@
 				posted_by:'Qiku India',
 				posted_by_id:'5600fd78f401d1101a4f4eed'
 			}
-			$http.post('http://localhost:8080/reply',obj).success(function(data){
+			$http.post(apiUrl+'/reply',obj).success(function(data){
 				rc.replyDisabled = false;
 				rc.replies.push({
 					_id:data.id,
