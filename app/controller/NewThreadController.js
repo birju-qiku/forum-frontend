@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku').controller('NewThreadController',newThreadController);
 	newThreadController.$inject = ['$scope','$http','$state','apiUrl'];
-	function newThreadController($scope,$http,$state){
+	function newThreadController($scope,$http,$state,apiUrl){
 		var nt = this;
 		nt.category="general";
 		nt.post = function(){
