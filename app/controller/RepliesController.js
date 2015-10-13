@@ -3,25 +3,37 @@
 	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl'];
 	function repliesController($scope,$http,$q,$stateParams,apiUrl){
 		var rc = this
+		function userDetails(){
+			return $q(function(resolve,reject){
+				$http.get(apiUrl+'/user').success(function(data){
+					rc.userDetails = data;
+					resolve();
+				})
+			})	
+		}
 		rc.postReply = function(){
 			rc.replyDisabled = true;
-			var obj = {
-				thread_id:rc.threadDetails._id,
-				desc:$("#replyToThread").htmlcode(),
-				posted_by:'Qiku India',
-				posted_by_id:'5600fd78f401d1101a4f4eed'
-			}
-			$http.post(apiUrl+'/reply',obj).success(function(data){
-				rc.replyDisabled = false;
-				rc.replies.push({
-					_id:data.id,
+			var userDetailsPromise = userDetails();
+			userDetailsPromise.then(function(){
+				console.log(rc.userDetails);
+				var obj = {
 					thread_id:rc.threadDetails._id,
 					desc:$("#replyToThread").htmlcode(),
-					posted_by:'Qiku India',
-					posted_by_id:'5600fd78f401d1101a4f4eed'
-				});
-				$("#replyToThread").htmlcode('');
-				alert('success');
+					posted_by:rc.userDetails.username,
+					posted_by_id:rc.userDetails._id
+				}
+				$http.post(apiUrl+'/reply',obj).success(function(data){
+					rc.replyDisabled = false;
+					rc.replies.push({
+						_id:data.id,
+						thread_id:rc.threadDetails._id,
+						desc:$("#replyToThread").htmlcode(),
+						posted_by:rc.userDetails.username,
+						posted_by_id:rc.userDetails._id
+					});
+					$("#replyToThread").htmlcode('');
+					toastr.success("Your reply is added to the thread.", "Qiku India", {"iconClass": 'customer-info'});
+				})
 			})
 		}
 		rc.fillReply = function(desc,posted_by){

@@ -17,6 +17,7 @@
     "angular": "~1.4.6",
     "normalize.css": "~3.0.3",
     "angular-route": "~1.4.6",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "toastr": "~2.1.2"
   }
 }

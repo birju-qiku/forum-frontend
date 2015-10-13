@@ -6,15 +6,15 @@
 			<div class="comment-inner-left">
 				<img src="http://img12.deviantart.net/daf4/i/2008/255/a/f/avatar_icon_by_pharaun_mizzrym.jpg"/>
 				<h5 class="userText">
-					<a href="#" class="username">birju112</a>
-					<em class="userTitle">Level: test</em>
+					<a href="#" class="username">{{reply.posted_by}}</a>
+					<em class="userTitle">Level: Pluto</em>
 					</h5>
 			</div>
 			<div class="comment-inner-right">
 				<p dynamichtml="reply.desc" class="non-quoted"></p>
 				<div>
 					<ul>
-						<li class="pull-right ">Like</li>
+						<!--<li class="pull-right ">Like</li> -->
 						<li style="cursor:pointer" ng-click="replies.fillReply(reply.desc,reply.posted_by)" class="pull-right comment-width-65">Reply</li>
 					</ul>
 				</div>

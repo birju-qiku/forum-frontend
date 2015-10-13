@@ -14,6 +14,7 @@
 			}
 			$http.post(apiUrl+'/thread',obj).success(function(){
 				$state.go('home.latest');
+				toastr.success("Your thread is added to our forum.", "Qiku India", {"iconClass": 'customer-info'});
 			})
 		}
 		var wbbOpt = {

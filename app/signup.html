@@ -1,13 +1,13 @@
-<section id="qiku-login" ng-controller="LoginController">
-	<form id="qiku-login-form">
-		<ul class='group'>
-			<li style="background-color:cyan"><a href="javascript:void(0)">LOGIN</a></li>
-			<li><a href="javascript:void(0)">SIGN UP</a></li>
+<section id="qiku-login">
+	<form id="qiku-login-form" style="padding-bottom:20px">
+		<ul class='group entry-tab'>
+			<li id="login-tab"><a href="/login">LOGIN</a></li>
+			<li id="signup-tab"><a href="/signup">SIGN UP</a></li>
 		</ul>
-		<input type="text" name="email" placeholder="Email or Username" autofocus>
-		<input type="password" name="password" placeholder="Password">
-		<input type="password" name="password" placeholder="Password">
-		<input type="password" name="password" placeholder="Password">
-		<button type="submit" class="qiku-login-btn">LOGIN</button>
+		<input type="text" name="email" placeholder="Email" autofocus ng-model="login.user.email">
+		<input type="text" name="username" placeholder="Username" ng-model="login.user.username">
+		<input type="password" name="password" placeholder="Password" ng-model="login.user.password">
+		<input type="password" name="confirm_password" placeholder="Password" ng-model="login.user.confirm_password">
+		<button ng-disabled="!login.user.email || !login.user.username || (login.user.password !== login.user.confirm_password) || !login.user.password" ng-click="login.register()" type="submit" class="qiku-login-btn">SIGNUP</button>
 	</form>
 </section>

@@ -10,6 +10,6 @@
 					<option value="qtera">Q Terra</option>
 					<option value="qluna">Q Luna</option>
 				</select>
-				<button style="display:block;margin-top:30px" class="normal-red-btn" ng-click="newThread.post()">Post</button>
+				<button ng-disabled="!newThread.title" style="display:block;margin-top:30px" class="normal-red-btn" ng-click="newThread.post()">Post</button>
 			</div>
 </section>

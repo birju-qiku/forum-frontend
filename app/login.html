@@ -1,11 +1,11 @@
-<section id="qiku-login" ng-controller="LoginController">
+<section id="qiku-login">
 	<form id="qiku-login-form">
-		<ul class='group'>
-			<li><a href="javascript:void(0)">LOGIN</a></li>
-			<li><a href="/signup">SIGN UP</a></li>
+		<ul class='group entry-tab'>
+			<li id="login-tab"><a href="javascript:void(0)">LOGIN</a></li>
+			<li id="signup-tab"><a href="/signup">SIGN UP</a></li>
 		</ul>
-		<input type="text" name="email" placeholder="Email or Username" autofocus>
-		<input type="password" name="password" placeholder="Password">
-		<button type="submit" class="qiku-login-btn">LOGIN</button>
+		<input type="text" name="email" placeholder="Email or Username" autofocus ng-model="login.user.identity">
+		<input type="password" name="password" placeholder="Password" ng-model="login.user.password">
+		<button ng-disabled="!login.user.identity || !login.user.password" type="submit" class="qiku-login-btn" ng-click="login.login()">LOGIN</button>
 	</form>
 </section>
