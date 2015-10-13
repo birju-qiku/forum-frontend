@@ -39,7 +39,7 @@ angular.module('qiku').service('shareVariables', function () {
     'responseError':function(rejection){
       //console.log(rejection);
       if(rejection.status == 403){
-        localStorage.setItem('hash','');
+        //localStorage.setItem('hash','');
         createToken().then(function(data){
             localStorage.setItem('hash',data.token)
         });
