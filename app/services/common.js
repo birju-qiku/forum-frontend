@@ -41,7 +41,7 @@ angular.module('qiku').service('shareVariables', function () {
       if(rejection.status == 403){
         //localStorage.setItem('hash','');
         createToken().then(function(data){
-            localStorage.setItem('hash',data.token)
+            localStorage.setItem('hash',data.data.token)
         });
       }else if(rejection.status == 401){
         toastr.success("You need to login to perform that action.", "Qiku India", {"iconClass": 'customer-info'});
