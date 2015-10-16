@@ -1,13 +1,32 @@
 <section id="qiku-login">
-	<form id="qiku-login-form" style="padding-bottom:20px">
+	<form id="qiku-login-form" name="registerForm" style="padding-bottom:20px" novalidate>
 		<ul class='group entry-tab'>
 			<li id="login-tab"><a href="/login">LOGIN</a></li>
 			<li id="signup-tab"><a href="/signup">SIGN UP</a></li>
 		</ul>
-		<input type="text" name="email" placeholder="Email" autofocus ng-model="login.user.email">
-		<input type="text" name="username" placeholder="Username" ng-model="login.user.username">
-		<input type="password" name="password" placeholder="Password" ng-model="login.user.password">
+		<input type="email" name="email" placeholder="Email" autofocus ng-model="login.user.email" required="">
+		<div ng-show="registerForm.$submitted || registerForm.email.$touched">
+	      <div class="login-error" ng-show="registerForm.email.$error.required">Don't worry.Your email is safe with us.</div>
+	      <div class="login-error" ng-show="registerForm.email.$error.email">That can not be your email.</div>
+	    </div>
+		<input type="text" name="username" placeholder="Username" ng-model="login.user.username" ng-minlength="3" ng-maxlength="12" required="">
+		<div ng-show="registerForm.$submitted || registerForm.username.$touched">
+	      <div class="login-error" ng-show="registerForm.username.$error.required">Username will be your identity on forums. Can't be empty.</div>
+	      <div class="login-error" ng-show="registerForm.username.$error.minlength">Greater than 2 chars.</div>
+	      <div class="login-error" ng-show="registerForm.username.$error.maxlength">Less than 12 chars.</div>
+	    </div>
+		<input type="password" name="password" placeholder="Password" ng-model="login.user.password" ng-minlength="6">
+		<div ng-show="registerForm.password.$touched">
+      		<div class="login-error" ng-show="!login.user.password">You have to think some password for yourself.</div>
+      		<div class="login-error" ng-show="registerForm.password.$error.minlength">Password should be atleast 6 chars long</div>
+    	</div>
 		<input type="password" name="confirm_password" placeholder="Password" ng-model="login.user.confirm_password">
-		<button ng-disabled="!login.user.email || !login.user.username || (login.user.password !== login.user.confirm_password) || !login.user.password" ng-click="login.register()" type="submit" class="qiku-login-btn">SIGNUP</button>
+		<div ng-show="registerForm.password.$touched && registerForm.confirm_password.$touched">
+      		<div class="login-error" ng-show="(login.user.password !== login.user.confirm_password)">Password does not match.</div>
+    	</div>
+    	<div ng-show="registerForm.confirm_password.$touched">
+      		<div class="login-error" ng-show="!login.user.confirm_password">Please type that awesome password again.</div>
+    	</div>
+		<button ng-disabled="!login.user.email || !login.user.username || (login.user.password !== login.user.confirm_password) || !login.user.password" ng-click="login.register()" id="registerbtn" type="submit" class="qiku-login-btn">SIGNUP</button>
 	</form>
 </section>

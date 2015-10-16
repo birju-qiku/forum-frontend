@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="qiku">
+<html lang="en">
 	<head>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/app/bower_components/normalize.css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="/app/assets/css/general.css">
 		<link rel="stylesheet" type="text/css" href="/app/assets/css/login.css">
@@ -9,9 +10,8 @@
 		<meta name="robots" content="noindex, nofollow">
 		<meta name="google-site-verification" content="MOC_aHpkgbaU8wzIUO_LibMGy9Chqam_twa4dObB0Gg" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" />
+		<link rel="stylesheet" href="/app/bower_components/components-font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/app/assets/css/bbeditor.css" />
 		<link href="/app/bower_components/toastr/toastr.css" rel="stylesheet"/>
 	</head>
 	<body>
@@ -43,8 +43,8 @@
 				</footer>
 			</div>
 		</main>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
+		<script src="/app/assets/js/jquery-1.11.js"></script>
+		<script src="/app/assets/js/bbeditor.js"></script>
 		<script src="/app/bower_components/toastr/toastr.js"></script>
 		<script type="text/javascript" src="/app/bower_components/angular/angular.js"></script>
 		<!--<script type="text/javascript" src="/app/bower_components/angular-route/angular-route.js"></script> -->
@@ -56,5 +56,34 @@
 		<script type="text/javascript" src="/app/controller/SignupController.js"></script>
 		<script type="text/javascript" src="/app/controller/RepliesController.js"></script>
 		<script type="text/javascript" src="/app/controller/NewThreadController.js"></script>
+		<script type="text/javascript">
+			(function() {
+			    fetchData().then(bootstrapApplication);
+			    function fetchData() {
+			        var initInjector = angular.injector(["ng"]);
+			        var $http = initInjector.get("$http");
+			        var $q = initInjector.get("$q");
+			        var apiUrl = "http://52.25.132.250:8080";
+			        var deferred = $q.defer();
+			        if(!localStorage.getItem('hash')){
+			        	$http.post(apiUrl+"/token").then(function(response) {
+				            localStorage.setItem('hash',response.data.token);
+				            deferred.resolve();
+				        }, function(errorResponse) {
+				            // Handle error case
+				        });
+			        }else{
+			        	deferred.resolve();
+			        }
+			        return deferred.promise;
+			    }
+
+			    function bootstrapApplication() {
+			        angular.element(document).ready(function() {
+			            angular.bootstrap(document, ["qiku"]);
+			        });
+			    }
+			}());
+		</script>
 	</body>
 </html>

@@ -1,17 +1,10 @@
 (function(){
-	angular.module('qiku', ['ui.router'])
+	angular.module('qiku',['ui.router'])
 	.config(routers)
 	.constant('apiUrl','http://52.25.132.250:8080')
 	//.constant('apiUrl','http://localhost:8080')
 	.run(function($http,$rootScope,apiUrl){
-		if(!localStorage.getItem('hash')){
-			$http.post(apiUrl+'/token').success(function(data){
-				localStorage.setItem('hash',data.token);
-				$http.defaults.headers.common['hash'] = data.token;
-			});
-		}else{
-			$http.defaults.headers.common['hash'] = localStorage.getItem('hash');
-		}
+		$http.defaults.headers.common['hash'] = localStorage.getItem('hash');
 		if(localStorage.getItem('passed')){
 			var hash = localStorage.getItem('hash');
 			$http.get(apiUrl+'/user').success(function(data){

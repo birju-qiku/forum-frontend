@@ -83,3 +83,11 @@
 {
 	padding-right: 10px;
 }
+#loginbtn:disabled, #registerbtn:disabled{
+	background: #f19092;
+}
+.login-error{
+	font-size: 10px;
+	color:#eb5b5f;
+	padding-left: 20px;
+}

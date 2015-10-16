@@ -1,11 +1,17 @@
 <section id="qiku-login">
-	<form id="qiku-login-form">
+	<form name="loginForm" id="qiku-login-form" novalidate>
 		<ul class='group entry-tab'>
 			<li id="login-tab"><a href="javascript:void(0)">LOGIN</a></li>
 			<li id="signup-tab"><a href="/signup">SIGN UP</a></li>
 		</ul>
-		<input type="text" name="email" placeholder="Email or Username" autofocus ng-model="login.user.identity">
-		<input type="password" name="password" placeholder="Password" ng-model="login.user.password">
-		<button ng-disabled="!login.user.identity || !login.user.password" type="submit" class="qiku-login-btn" ng-click="login.login()">LOGIN</button>
+		<input type="text" name="email" placeholder="Email or Username" autofocus ng-model="login.user.identity" required="">
+		<div ng-show="loginForm.$submitted || loginForm.email.$touched">
+	      <div class="login-error" ng-show="loginForm.email.$error.required">Tell us your email.</div>
+	    </div>
+		<input type="password" name="password" placeholder="Password" ng-model="login.user.password" required="">
+		<div ng-show="loginForm.$submitted || loginForm.password.$touched">
+	      <div class="login-error" ng-show="loginForm.password.$error.required">We are sure you must have a password.</div>
+	    </div>
+		<button ng-disabled="loginForm.$invalid" type="submit" class="qiku-login-btn" ng-click="login.login()" id="loginbtn">LOGIN</button>
 	</form>
 </section>
