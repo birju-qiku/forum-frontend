@@ -47,6 +47,8 @@ angular.module('qiku').service('shareVariables', function () {
       }else if(rejection.status == 401){
         toastr.success("You need to login to perform that action.", "Qiku India", {"iconClass": 'customer-info'});
         //$state.go('login')
+      }else if(rejection.status == 423){
+        toastr.success("Authentication failed. Make sure you you have verified your email.", "Qiku India", {"iconClass": 'customer-info'});
       }
       return $q.reject(rejection);
     }

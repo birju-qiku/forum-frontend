@@ -16,6 +16,7 @@
 		lc.register = function(){
 			$http.post(apiUrl+'/user',lc.user).then(function(){
 				lc.user = {};
+				$state.go("login");
 				toastr.success("We have send you an email. Please verify.", "Qiku India", {"iconClass": 'customer-info'});
 			},function(err){
 				if(err.data.unique == 'username'){
@@ -33,7 +34,6 @@
 				$state.go('home.latest');
 				toastr.success("Welcome to Qiku India Forum", "Qiku India", {"iconClass": 'customer-info'});
 			},function(){
-				alert('authentication failed');
 			})
 		}
 	}

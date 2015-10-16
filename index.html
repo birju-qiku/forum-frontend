@@ -69,6 +69,7 @@
 			        var $http = initInjector.get("$http");
 			        var $q = initInjector.get("$q");
 			        var apiUrl = "http://52.25.132.250:8080";
+			        //var apiUrl = "http://localhost:8080";
 			        var deferred = $q.defer();
 			        if(!localStorage.getItem('hash')){
 			        	$http.post(apiUrl+"/token").then(function(response) {
