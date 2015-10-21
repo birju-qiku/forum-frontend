@@ -2,6 +2,10 @@
 	angular.module('qiku').controller('LoginController',loginController);
 	loginController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope'];
 	function loginController($scope,$http,$state,apiUrl,$stateParams,$rootScope){
+		if(typeof(FB) !== 'undefined'){
+			console.log(FB);
+			FB.XFBML.parse();
+		}
 		var lc = this;
 		var param = $state.href($state.current.name, $state.params);
 		if(param == '/login'){
@@ -30,10 +34,11 @@
 			$http.post(apiUrl+'/user/login',lc.user).then(function(data){
 				localStorage.setItem('passed',true);
 				localStorage.setItem('hash',data.data.token);
-				$rootScope.$emit('loggedIn',data.data.username)
+				$rootScope.$emit('loggedIn',{username:data.data.username,image:''})
 				$state.go('home.latest');
 				toastr.success("Welcome to Qiku India Forum", "Qiku India", {"iconClass": 'customer-info'});
 			},function(){
+				toastr.success("Authentication failed", "Qiku India", {"iconClass": 'customer-info'});
 			})
 		}
 	}

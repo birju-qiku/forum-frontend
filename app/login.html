@@ -13,5 +13,11 @@
 	      <div class="login-error" ng-show="loginForm.password.$error.required">We are sure you must have a password.</div>
 	    </div>
 		<button ng-disabled="loginForm.$invalid" type="submit" class="qiku-login-btn" ng-click="login.login()" id="loginbtn">LOGIN</button>
+		<div class="connect-with">
+			<span class="border-indicator"></span><span class="connect-with-text">Or connect with</span><span class="border-indicator"></span>
+		</div>
+		<div style="width:100%;text-align:center;margin-top:10px;margin-bottom:10px">
+			<fb:login-button scope="public_profile,email" size="large"></fb:login-button>
+		</div>
 	</form>
 </section>

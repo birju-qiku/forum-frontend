@@ -54,7 +54,7 @@
 	max-width:400px;
 	margin: 0 auto;
 	margin-top: 75px;
-	min-height: 255px;
+	min-height: 300px;
 	background-color: #ffffff;
 }
 .qiku-login-btn{
@@ -90,4 +90,22 @@
 	font-size: 10px;
 	color:#eb5b5f;
 	padding-left: 20px;
+}
+.connect-with{
+	width: 100%;
+	padding-left: 5%;
+	margin-top: 10px;
+}
+.connect-with span{
+	text-align: center;
+	width: 30%;
+	display: inline-block;
+	color:#999998;
+}
+.border-indicator{
+	border: 1px solid #999998;
+}
+.connect-with-text{
+	position: relative;
+	top:4px;
 }

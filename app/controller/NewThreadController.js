@@ -20,6 +20,7 @@
 					desc:$("#newThread").htmlcode(),
 					posted_by:nt.userDetails.username,
 					posted_by_id:nt.userDetails._id,
+					posted_by_image:nt.userDetails.image,
 					category:nt.category
 				}
 				$http.post(apiUrl+'/thread',obj).success(function(){

@@ -12,6 +12,7 @@
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 		<link rel="stylesheet" href="/app/bower_components/components-font-awesome/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="/app/assets/css/bbeditor.css" />
+		<link rel="stylesheet" href="/app/assets/css/fb-btn.css" />
 		<link href="/app/bower_components/toastr/toastr.css" rel="stylesheet"/>
 		<style type="text/css">
 			[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -34,6 +35,7 @@
 							<li><i class="fa fa-sign-in"></i></li>
 						</ul>
 						<ul ng-class="{'display-none':!username}">
+							<li><a href="#"><img height=30 width=30 style="border-radius:50%" ng-src="{{image}}" err-src="/app/assets/img/noimage.jpg" ></a></li>
 							<li>{{username}}</li>
 							<li><i class="fa fa-user"></i></li>
 							<li><a style="cursor:pointer" ng-click="logout()">Logout</a></li>

@@ -1,7 +1,6 @@
 <div class="content comment-outer" ng-repeat="thread in forum.threads">
 	<div class="comment-inner-left">
-		<!--<img ng-src="{{thread.posted_by_image}}" onError="this.src='/assets/img/noimage.jpg'" / >-->
-		<img src='app/assets/img/noimage.jpg' / >
+		<img ng-src="{{thread.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
 		<h5 class="userText">
 			<a href="#" class="username">{{thread.posted_by}}</a>
 			<em class="userTitle">Level: Pluto</em>

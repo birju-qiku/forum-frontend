@@ -15,12 +15,12 @@
 			rc.replyDisabled = true;
 			var userDetailsPromise = userDetails();
 			userDetailsPromise.then(function(){
-				console.log(rc.userDetails);
 				var obj = {
 					thread_id:rc.threadDetails._id,
 					desc:$("#replyToThread").htmlcode(),
 					posted_by:rc.userDetails.username,
-					posted_by_id:rc.userDetails._id
+					posted_by_id:rc.userDetails._id,
+					posted_by_image:rc.userDetails.image
 				}
 				$http.post(apiUrl+'/reply',obj).success(function(data){
 					rc.replyDisabled = false;
@@ -29,7 +29,8 @@
 						thread_id:rc.threadDetails._id,
 						desc:$("#replyToThread").htmlcode(),
 						posted_by:rc.userDetails.username,
-						posted_by_id:rc.userDetails._id
+						posted_by_id:rc.userDetails._id,
+						posted_by_image:rc.userDetails.image
 					});
 					$("#replyToThread").htmlcode('');
 					toastr.success("Your reply is added to the thread.", "Qiku India", {"iconClass": 'customer-info'});
