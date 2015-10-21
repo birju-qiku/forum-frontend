@@ -2,7 +2,7 @@
 	angular.module('qiku').controller('LoginController',loginController);
 	loginController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope'];
 	function loginController($scope,$http,$state,apiUrl,$stateParams,$rootScope){
-		if(typeof(FB) !== 'undefined' && $(document).find(iframe).length == 0){
+		if(typeof(FB) !== 'undefined' && $(document).find('iframe').length == 0){
 			FB.XFBML.parse();
 		}
 		var lc = this;
