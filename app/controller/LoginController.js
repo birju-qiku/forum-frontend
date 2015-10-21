@@ -34,6 +34,7 @@
 			$http.post(apiUrl+'/user/login',lc.user).then(function(data){
 				localStorage.setItem('passed',true);
 				localStorage.setItem('hash',data.data.token);
+				$http.defaults.headers.common['hash'] = data.data.token;
 				$rootScope.$emit('loggedIn',{username:data.data.username,image:''})
 				$state.go('home.latest');
 				toastr.success("Welcome to Qiku India Forum", "Qiku India", {"iconClass": 'customer-info'});

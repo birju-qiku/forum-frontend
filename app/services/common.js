@@ -90,9 +90,9 @@ angular.module('qiku').service('shareVariables', function () {
                 }
                 console.log(data);
                 $http.put(apiUrl+'/updateuser/'+res.email,data).then(function(data){
-                  console.log(data);
                     localStorage.setItem('passed',true);
                     localStorage.setItem('hash',data.data.message.token);
+                    $http.defaults.headers.common['hash'] = data.data.message.token;
                     $rootScope.$emit('loggedIn',{username:res.name,image:res.picture.data.url});
                     $state.go('home.latest');
                     toastr.success("Welcome to Qiku India Forum", "Qiku India", {"iconClass": 'customer-info'});
