@@ -470,6 +470,9 @@ button.normal-red-btn{
 }
 	/* drop class for two coloumn design */
 	.Drop { float: left; width: 100%;}
-
+	.qiku-nav{
+		width: 61%;
+		font-size: 15px;
+	}
 }
 
