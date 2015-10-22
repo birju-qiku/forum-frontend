@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku').controller('RepliesController',repliesController);
-	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl'];
-	function repliesController($scope,$http,$q,$stateParams,apiUrl){
+	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope'];
+	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope){
 		var rc = this
 		function userDetails(){
 			return $q(function(resolve,reject){
@@ -46,6 +46,7 @@
 		function getThreadId(){
 			return $q(function(resolve,reject){
 				$http.get(apiUrl+'/thread-by-link/'+$stateParams.id).success(function(data){
+					$rootScope.$emit('updateOgTags',{ogtitle:data.title});
 					rc.threadDetails = data;
 					resolve();
 				})
@@ -55,6 +56,7 @@
 		getThreadPromise.then(function(){
 			$http.get(apiUrl+'/reply/'+rc.threadDetails._id+'?limit=10&offset=0').success(function(data){
 				rc.replies = data.replies;
+				$scope.htmlReady();
 			})
 		})
 		var wbbOpt = {

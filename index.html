@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-controller="mainController">
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/app/bower_components/normalize.css/normalize.css">
@@ -8,8 +8,11 @@
 		<link rel="stylesheet" type="text/css" href="/app/assets/css/forum.css">
 		<base href="/">
 		<meta name="robots" content="noindex, nofollow">
+		<meta name="fragment" content="!" />
 		<meta name="google-site-verification" content="MOC_aHpkgbaU8wzIUO_LibMGy9Chqam_twa4dObB0Gg" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<!-- facebook meta tags -->
+		<meta property="og:title" content="{{ogtitle}}"/>
 		<link rel="stylesheet" href="/app/bower_components/components-font-awesome/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="/app/assets/css/bbeditor.css" />
 		<link rel="stylesheet" href="/app/assets/css/fb-btn.css" />
@@ -55,6 +58,8 @@
 		<script src="/app/bower_components/toastr/toastr.js"></script>
 		<script type="text/javascript" src="/app/bower_components/angular/angular.js"></script>
 		<!--<script type="text/javascript" src="/app/bower_components/angular-route/angular-route.js"></script> -->
+		<script type="text/javascript" src="/app/assets/js/angular-seo.js"></script>
+
 		<script type="text/javascript" src="/app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 		<script type="text/javascript" src="/app/app.js"></script>
 		<script type="text/javascript" src="/app/services/common.js"></script>

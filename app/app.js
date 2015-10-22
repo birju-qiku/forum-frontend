@@ -1,5 +1,5 @@
 (function(){
-	angular.module('qiku',['ui.router'])
+	angular.module('qiku',['ui.router','seo'])
 	.config(routers)
 	.constant('apiUrl','http://52.25.132.250:8080')
 	//.constant('apiUrl','http://localhost:8080')
@@ -56,8 +56,17 @@
 	  }(document, 'script', 'facebook-jssdk'));
 
 	}])
-	.controller('headerController',headerCtrlFunction);
+	.controller('headerController',headerCtrlFunction)
+	.controller('mainController',mainCtrlFunction);
 	headerCtrlFunction.$inject = ['$scope','$rootScope','$http','$state','apiUrl','$timeout'];
+	mainCtrlFunction.$inject = ['$scope','$rootScope'];
+	function mainCtrlFunction($scope,$rootScope){
+		$rootScope.$on('updateOgTags',function(event,data){
+			for(i in data){
+				$scope[i] = data[i];
+			}
+		});
+	}
 	function headerCtrlFunction($scope,$rootScope,$http,$state,apiUrl,$timeout){
 		$rootScope.$on('loggedIn',function(event,data){
 			$scope.username = data.username;
