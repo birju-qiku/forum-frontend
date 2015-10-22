@@ -26,7 +26,7 @@
 	       ( https://developers.facebook.com/apps/ ) 
 	      */
 
-	      appId: '906900819363038',
+	      appId: '906239946095792',
 
 	      /* 
 	       Enable cookies to allow the server to access 
