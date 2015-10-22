@@ -44,6 +44,8 @@
 	text-align: center;
 	line-height: 45px;
 	color:#ffffff;
+	font-size: 13px;
+	font-weight: 800;
 }
 #qiku-login ul li a:hover{
 	background-color: #ffffff;
@@ -51,29 +53,32 @@
 	}
 
 #qiku-login-form{
-	max-width:400px;
+	max-width:350px;
 	margin: 0 auto;
 	margin-top: 75px;
-	min-height: 300px;
+	min-height: 310px;
 	background-color: #ffffff;
 }
 .qiku-login-btn{
 	display: block;
-	width: 90%;
+	width: 100%;
 	background-color: #eb5b5f;
 	border: none;
 	margin: 0 auto;
 	height: 35px;
 	color: #ffffff;
-	margin-top: 20px;
+	font-size: 14px;
+	font-weight: 800;
+	/*margin-top: 20px;*/
 }
 #qiku-login-form input{
 	display: block;
 	margin: 0 auto;
-	width: 85%;
-	margin-top: 20px;
+	width: 93.5%;
+	/*margin-top: 20px;*/
 	padding-left: 20px;
 	outline: 0;
+	font-size: 12px;
 }
 .copyright-text
 {
@@ -83,29 +88,57 @@
 {
 	padding-right: 10px;
 }
-#loginbtn:disabled, #registerbtn:disabled{
-	background: #f19092;
-}
 .login-error{
 	font-size: 10px;
 	color:#eb5b5f;
-	padding-left: 20px;
+	line-height: 25px;
+	/*padding-left: 20px;*/
 }
 .connect-with{
 	width: 100%;
-	padding-left: 5%;
-	margin-top: 10px;
+	margin: 0 auto;
 }
 .connect-with span{
 	text-align: center;
-	width: 30%;
 	display: inline-block;
 	color:#999998;
+	font-size: 12px;
 }
 .border-indicator{
-	border: 1px solid #999998;
+	border-top: 1px solid #e2e2e2;
 }
-.connect-with-text{
+span.border-indicator{
+	width: 45%;
+}
+span.connect-with-text{
+	width: 10%;
 	position: relative;
 	top:4px;
+	margin-bottom: 10px;
+}
+.login-fb-btn{
+	background-color:#425599;
+	color:#ffffff;
+	display: block;
+	width:100%;
+	margin: 0 auto;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 13px;
+}
+a.login-fb-btn i{
+	padding-right: 10px;
+}
+#qiku-login-form input.input-top-margin
+{
+	margin-top: 20px;
+}
+.qiku-login-btn i{
+	padding-right: 10px;
+	min-width: 12px;
+}
+
+#registerbtn:disabled{
+	background: #f19092;
 }

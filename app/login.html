@@ -4,20 +4,28 @@
 			<li id="login-tab"><a href="javascript:void(0)">LOGIN</a></li>
 			<li id="signup-tab"><a href="/signup">SIGN UP</a></li>
 		</ul>
-		<input type="text" name="email" placeholder="Email or Username" autofocus ng-model="login.user.identity" required="">
-		<div ng-show="loginForm.$submitted || loginForm.email.$touched">
-	      <div class="login-error" ng-show="loginForm.email.$error.required">Tell us your email.</div>
-	    </div>
+		<div class="input-wrapper">
+		<input type="text" class="input-top-margin" name="email" placeholder="Email or Username" autofocus ng-model="login.user.identity" required="">
+		<div class="noshake">
+			<div ng-show="loginForm.$submitted || loginForm.email.$touched">
+		      <div class="login-error" ng-show="loginForm.email.$error.required">Tell us your email.</div>
+		    </div>
+		</div>
 		<input type="password" name="password" placeholder="Password" ng-model="login.user.password" required="">
-		<div ng-show="loginForm.$submitted || loginForm.password.$touched">
-	      <div class="login-error" ng-show="loginForm.password.$error.required">We are sure you must have a password.</div>
-	    </div>
-		<button ng-disabled="loginForm.$invalid" type="submit" class="qiku-login-btn" ng-click="login.login()" id="loginbtn">LOGIN</button>
+		<div class="noshake">
+			<div ng-show="loginForm.$submitted || loginForm.password.$touched">
+		      <div class="login-error" ng-show="loginForm.password.$error.required">We are sure you must have a password.</div>
+		    </div>
+		</div>
+		<button ng-disabled="loginForm.$invalid" type="submit" class="qiku-login-btn" ng-click="login.login()" id="loginbtn">
+			<i ng-show="loginForm.$invalid" class="fa fa-lock"></i>
+			<i ng-show="!loginForm.$invalid" class="fa fa-unlock"></i>
+			LOGIN
+		</button>
 		<div class="connect-with">
-			<span class="border-indicator"></span><span class="connect-with-text">Or connect with</span><span class="border-indicator"></span>
+			<span class="border-indicator"></span><span class="connect-with-text">or</span><span class="border-indicator"></span>
 		</div>
-		<div style="width:20%;margin-left:40%;text-align:center;margin-top:10px;margin-bottom:10px">
-			<fb:login-button scope="public_profile,email" size="large"></fb:login-button>
-		</div>
+		<a class="login-fb-btn" href="#" ng-click="login.fblogin()"><i class="fa fa-facebook"></i>Facebook Login</a>
+		<div>
 	</form>
 </section>

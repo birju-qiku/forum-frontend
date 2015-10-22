@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku').controller('LoginController',loginController);
-	loginController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope'];
-	function loginController($scope,$http,$state,apiUrl,$stateParams,$rootScope){
+	loginController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope','fbAuth'];
+	function loginController($scope,$http,$state,apiUrl,$stateParams,$rootScope,fbAuth){
 		if(typeof(FB) !== 'undefined'){
 			FB.XFBML.parse();
 		}
@@ -40,6 +40,16 @@
 			},function(){
 				toastr.success("Authentication failed", "Qiku India", {"iconClass": 'customer-info'});
 			})
+		}
+		lc.fblogin = function(){
+			FB.login(function(response) {
+			    if (response.authResponse) {
+			    	console.log('Welcome!  Fetching your information.... ');
+			    	fbAuth.getUserInfo();
+			    } else {
+			     console.log('User cancelled login or did not fully authorize.');
+			    }
+			},{scope: 'email'});
 		}
 	}
 })();

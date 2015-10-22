@@ -459,6 +459,13 @@ button.normal-red-btn{
 #newThread{
 	height:200px;
 }
+.input-wrapper{
+	margin:0 auto; 
+	width:90%;
+}
+.noshake{
+	min-height:25px;
+}
 /* ends here */
 /* right column ends here */
 @media screen and (max-width: 768px)
@@ -470,9 +477,20 @@ button.normal-red-btn{
 }
 	/* drop class for two coloumn design */
 	.Drop { float: left; width: 100%;}
+	#qiku-logo{
+	padding: 20px 0 0 5px;
+	width: 100px;
+	float: left;
+}
 	.qiku-nav{
 		width: 61%;
 		font-size: 15px;
+		display: inline-table;
+		padding: 20px 10px 0 0;
 	}
+	.qiku-nav ul li {
+    float: right;
+}
+
 }
 
