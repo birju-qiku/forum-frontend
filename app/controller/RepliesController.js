@@ -46,7 +46,7 @@
 		function getThreadId(){
 			return $q(function(resolve,reject){
 				$http.get(apiUrl+'/thread-by-link/'+$stateParams.id).success(function(data){
-					$rootScope.$emit('updateOgTags',{ogtitle:data.title});
+					$rootScope.$emit('updateOgTags',{ogtitle:data.title,ogurl:"http://inforum.qiku.com/replies/"+$stateParams.id});
 					rc.threadDetails = data;
 					resolve();
 				})
