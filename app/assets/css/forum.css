@@ -141,12 +141,12 @@
 	width: 100%;
 }
 
-.tabs li {list-style: none;}
-.tabs li:first-child > a{
+.tabs > ul > li {list-style: none;}
+.tabs > ul > li:first-child > a{
 	background: #ffffff;
 	color: #eb5b5f;
 }
-.tabs li a {
+.tabs > ul > li > a {
 	background: #eb5b5f;
 	font-size: 15px;
 	line-height: 40px;
@@ -164,7 +164,7 @@
 	font-size: 12px;
 }
 
-.tabs li a:after {
+.tabs > ul > li a:after {
     content: '';
 	background: #fff;
 	position: absolute;
@@ -175,7 +175,7 @@
 	display: block;
 }
 
-.tabs  li a:hover  {
+.tabs > ul > li a:hover  {
 	background: #d7484f;
 	-webkit-transition: all linear 0.3s;
     -moz-transition: all linear 0.3s;

@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku',['ui.router','seo'])
 	.config(routers)
-	.constant('apiUrl','http://52.25.132.250:8080')
+	.constant('apiUrl',config.apiUrl)
 	//.constant('apiUrl','http://localhost:8080')
 	.run(['$http','$rootScope','apiUrl','$window','fbAuth',function($http,$rootScope,apiUrl,$window,fbAuth){
 		$http.defaults.headers.common['hash'] = localStorage.getItem('hash');
@@ -26,7 +26,8 @@
 	       ( https://developers.facebook.com/apps/ ) 
 	      */
 
-	      appId: '906239946095792',
+	      //appId: '906239946095792',
+	      appId: config.facebook.appId,
 
 	      /* 
 	       Enable cookies to allow the server to access 

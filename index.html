@@ -11,23 +11,39 @@
 		<meta name="fragment" content="!" />
 		<meta name="google-site-verification" content="MOC_aHpkgbaU8wzIUO_LibMGy9Chqam_twa4dObB0Gg" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
-		<!-- facebook meta tags -->
-		<meta property="og:title" content="{{ogtitle}}"/>
-		<meta property="fb:app_id" content="906239946095792" /> 
-	    <meta property="og:type" content="article" /> 
-	    <meta property="og:url" content="{{ogurl}}" />
-	    <meta property="og:image" content="http://inforum.qiku.com/app/assets/img/qiku-logo.png" /> 
-	    <meta property="og:description" content="This is just a sample brief description" />
 
 		<link rel="stylesheet" href="/app/bower_components/components-font-awesome/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="/app/assets/css/bbeditor.css" />
-		<link rel="stylesheet" href="/app/assets/css/fb-btn.css" />
 		<link href="/app/bower_components/toastr/toastr.css" rel="stylesheet"/>
 		<style type="text/css">
 			[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   				display: none !important;
 			}
 		</style>
+		<script src="/app/assets/js/jquery-1.11.js"></script>
+		<script src="/app/assets/js/bbeditor.js"></script>
+		<script src="/app/bower_components/toastr/toastr.js"></script>
+		<script type="text/javascript" src="/app/bower_components/angular/angular.js"></script>
+		<!--<script type="text/javascript" src="/app/bower_components/angular-route/angular-route.js"></script> -->
+		<script type="text/javascript" src="/app/assets/js/angular-seo.js"></script>
+
+		<script type="text/javascript" src="/app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script type="text/javascript" src="/app/{{env}}.constants.js"></script>
+		<script type="text/javascript" src="/app/app.js"></script>
+		<script type="text/javascript" src="/app/services/common.js"></script>
+		<script type="text/javascript" src="/app/controller/ForumController.js"></script>
+		<script type="text/javascript" src="/app/controller/LoginController.js"></script>
+		<script type="text/javascript" src="/app/controller/SignupController.js"></script>
+		<script type="text/javascript" src="/app/controller/RepliesController.js"></script>
+		<script type="text/javascript" src="/app/controller/NewThreadController.js"></script>
+		<script type="text/javascript" src="/app/bootstrap.js"></script>
+		<!-- facebook meta tags -->
+		<meta property="og:title" content="{{ogtitle}}"/> 
+	    <meta property="og:type" content="article" /> 
+	    <meta property="og:url" content="{{ogurl}}" />
+	    <meta property="og:image" content="{{frontUrl}}/app/assets/img/qiku-logo.png" /> 
+	    <meta property="og:description" content="This is just a sample brief description" />
+		<meta property="fb:app_id" content="{{fbAppId}}" />
 	</head>
 	<body>
 		<main>
@@ -44,8 +60,8 @@
 							<li><i class="fa fa-sign-in"></i></li>
 						</ul>
 						<ul ng-class="{'display-none':!username}">
-							<li><a href="#"><img height=30 width=30 style="border-radius:50%" ng-src="{{image}}" err-src="/app/assets/img/noimage.jpg" ></a></li>
-							<li>{{username}}</li>
+							<li><a href="#"><img height=30 width=30 style="border-radius:50%" ng-src="\{{image}}" err-src="/app/assets/img/noimage.jpg" ></a></li>
+							<li>\{{username}}</li>
 							<li><i class="fa fa-user"></i></li>
 							<li><a style="cursor:pointer" ng-click="logout()">Logout</a></li>
 							<li><i class="fa fa-sign-out"></i></li>
@@ -59,50 +75,5 @@
 				</footer>
 			</div>
 		</main>
-		<script src="/app/assets/js/jquery-1.11.js"></script>
-		<script src="/app/assets/js/bbeditor.js"></script>
-		<script src="/app/bower_components/toastr/toastr.js"></script>
-		<script type="text/javascript" src="/app/bower_components/angular/angular.js"></script>
-		<!--<script type="text/javascript" src="/app/bower_components/angular-route/angular-route.js"></script> -->
-		<script type="text/javascript" src="/app/assets/js/angular-seo.js"></script>
-
-		<script type="text/javascript" src="/app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-		<script type="text/javascript" src="/app/app.js"></script>
-		<script type="text/javascript" src="/app/services/common.js"></script>
-		<script type="text/javascript" src="/app/controller/ForumController.js"></script>
-		<script type="text/javascript" src="/app/controller/LoginController.js"></script>
-		<script type="text/javascript" src="/app/controller/SignupController.js"></script>
-		<script type="text/javascript" src="/app/controller/RepliesController.js"></script>
-		<script type="text/javascript" src="/app/controller/NewThreadController.js"></script>
-		<script type="text/javascript">
-			(function() {
-			    fetchData().then(bootstrapApplication);
-			    function fetchData() {
-			        var initInjector = angular.injector(["ng"]);
-			        var $http = initInjector.get("$http");
-			        var $q = initInjector.get("$q");
-			        var apiUrl = "http://52.25.132.250:8080";
-			        //var apiUrl = "http://localhost:8080";
-			        var deferred = $q.defer();
-			        if(!localStorage.getItem('hash')){
-			        	$http.post(apiUrl+"/token").then(function(response) {
-				            localStorage.setItem('hash',response.data.token);
-				            deferred.resolve();
-				        }, function(errorResponse) {
-				            // Handle error case
-				        });
-			        }else{
-			        	deferred.resolve();
-			        }
-			        return deferred.promise;
-			    }
-
-			    function bootstrapApplication() {
-			        angular.element(document).ready(function() {
-			            angular.bootstrap(document, ["qiku"]);
-			        });
-			    }
-			}());
-		</script>
 	</body>
 </html>
