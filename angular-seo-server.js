@@ -1,5 +1,5 @@
 var system = require('system');
-//hello hello. how low
+//hello hello. how low. We are here now. Entertain us.
 if (system.args.length < 3) {
     console.log("Missing arguments.");
     phantom.exit();
