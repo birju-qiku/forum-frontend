@@ -1,5 +1,5 @@
 var system = require('system');
-//that is so true
+//that is so true to be true
 if (system.args.length < 3) {
     console.log("Missing arguments.");
     phantom.exit();
