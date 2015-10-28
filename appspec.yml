@@ -5,4 +5,4 @@ files:
     destination: /home/ubuntu/forum-frontend
 hooks:
   BeforeInstall:
-    location: scripts/uninstall.sh
+    location: uninstall.sh
