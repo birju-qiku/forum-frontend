@@ -3,3 +3,6 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/forum-frontend
+hooks:
+  BeforeInstall:
+    location: scripts/uninstall.sh
