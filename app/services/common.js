@@ -25,10 +25,10 @@ angular.module('qiku').service('shareVariables', function () {
             })
         });
         promise.then(function(){
-            //register
+            //register check if username exists, if yes ask him to create a new one
             var data = {
               email:res.email,
-              username:'',
+              username:res.email.split('@')[0],
               token:localStorage.getItem('hash'),
               image:res.picture.data.url,
               src:'fb',
