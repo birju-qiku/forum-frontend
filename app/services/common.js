@@ -29,16 +29,15 @@ angular.module('qiku').service('shareVariables', function () {
             var data = {
               email:res.email,
               username:res.email.split('@')[0],
-              token:localStorage.getItem('hash'),
               image:res.picture.data.url,
               src:'fb',
               fbid:res.id,
               verified:1,
               name:res.name
             }
-            $http.post(apiUrl+'/socialregister',data).then(function(){
+            $http.post(apiUrl+'/socialregister',data).then(function(data){
                 localStorage.setItem('passed',true);
-                //localStorage.setItem('hash',data.data.token);
+                localStorage.setItem('hash',data.data.token);
                 $rootScope.$emit('loggedIn',{username:res.name,image:res.picture.data.url});
                 $state.go('home.latest');
                 toastr.success("Welcome to Qiku India Forum", "Qiku India", {"iconClass": 'customer-info'});

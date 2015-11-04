@@ -59,7 +59,7 @@
 	}])
 	.controller('headerController',headerCtrlFunction)
 	.controller('mainController',mainCtrlFunction);
-	headerCtrlFunction.$inject = ['$scope','$rootScope','$http','$state','apiUrl','$timeout'];
+	headerCtrlFunction.$inject = ['$scope','$rootScope','$http','$state','apiUrl','$timeout','$window'];
 	mainCtrlFunction.$inject = ['$scope','$rootScope'];
 	function mainCtrlFunction($scope,$rootScope){
 		$rootScope.$on('updateOgTags',function(event,data){
@@ -68,7 +68,7 @@
 			}
 		});
 	}
-	function headerCtrlFunction($scope,$rootScope,$http,$state,apiUrl,$timeout){
+	function headerCtrlFunction($scope,$rootScope,$http,$state,apiUrl,$timeout,$window){
 		$rootScope.$on('loggedIn',function(event,data){
 			$scope.username = data.username;
 			$scope.image = data.image
@@ -76,8 +76,10 @@
 		$scope.logout = function(){
 			$http.put(apiUrl+'/user/logout').success(function(data){
 				localStorage.removeItem('passed');
+				//localStorage.removeItem('hash');
 				$rootScope.$emit('loggedIn',false);
 				$state.go('login');
+				//$window.location.reload();
 			})
 		}
 	}

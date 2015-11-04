@@ -19,5 +19,8 @@
 		$http.get(apiUrl+'/thread').success(function(data){
 			fc.threads = data;
 		});
+		$http.get(apiUrl+'/stats').success(function(data){
+			fc.stats = data.stats;
+		});
 	}
 })();

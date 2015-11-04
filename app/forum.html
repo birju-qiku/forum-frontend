@@ -13,7 +13,7 @@
 									</form>
 								</div>
 								<!-- 2-->
-								<div class="submenu-search"> POSTS : 570 | USERS : 250 | ONLINE : 55 
+								<div class="submenu-search"> POSTS : {{forum.stats.total}} | USERS : {{forum.stats.users}} | ONLINE : {{forum.stats.live}} 
 								</div>
 						</div>
 				</div>
@@ -74,10 +74,10 @@
 					<div class="panel-category-header">categories</div>
 					<div class="panel-category-body">
 						<ul>
-							<li><span class="pull-left">General</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Q Terra</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Q Luna</span> <span class="pull-right">120</span></li>
-							<li><span class="pull-left">Qihoo 360</span> <span class="pull-right">120</span></li>
+							<li><span class="pull-left">General</span> <span class="pull-right">{{forum.stats.general}}</span></li>
+							<li><span class="pull-left">Q Terra</span> <span class="pull-right">{{forum.stats.qterra}}</span></li>
+							<li><span class="pull-left">Q Luna</span> <span class="pull-right">{{forum.stats.qterra}}</span></li>
+							<li><span class="pull-left">Qihoo 360</span> <span class="pull-right">{{forum.stats.qihoo360}}</span></li>
 						</ul>
 					</div>
 				</div>

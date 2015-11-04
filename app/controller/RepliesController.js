@@ -20,7 +20,8 @@
 					desc:$("#replyToThread").htmlcode(),
 					posted_by:rc.userDetails.username,
 					posted_by_id:rc.userDetails._id,
-					posted_by_image:rc.userDetails.image
+					posted_by_image:rc.userDetails.image,
+					category:rc.threadDetails.category
 				}
 				$http.post(apiUrl+'/reply',obj).success(function(data){
 					rc.replyDisabled = false;
@@ -30,7 +31,8 @@
 						desc:$("#replyToThread").htmlcode(),
 						posted_by:rc.userDetails.username,
 						posted_by_id:rc.userDetails._id,
-						posted_by_image:rc.userDetails.image
+						posted_by_image:rc.userDetails.image,
+						category:rc.threadDetails.category
 					});
 					$("#replyToThread").htmlcode('');
 					toastr.success("Your reply is added to the thread.", "Qiku India", {"iconClass": 'customer-info'});
