@@ -3,7 +3,7 @@ var exphbs  = require('express-handlebars');
 var app = express();
 if(process.env.NODE_ENV == 'prod'){
 	var fbAppId = '906900819363038';
-	var frontUrl = 'http://inforum.qiku.com';
+	var frontUrl = 'https://forums.qiku.com';
 }else{
 	var fbAppId = '906239946095792';
 	var frontUrl = 'http://localhost:3000';

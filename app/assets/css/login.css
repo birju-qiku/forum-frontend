@@ -142,3 +142,9 @@ a.login-fb-btn i{
 #registerbtn:disabled{
 	background: #f19092;
 }
+.forgot-password{
+	color:rgb(235, 91, 95);
+	font-size: 12px;
+	text-decoration: underline;
+	line-height: 4em;
+}
