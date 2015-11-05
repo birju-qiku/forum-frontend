@@ -12,7 +12,7 @@
 		fc.$state = $state;
 		fc.fbshare = function(link){
 			FB.ui({
-			  method: 'share_open_graph',
+			  method: 'share',
 			  href: 'https://forums.qiku.com/replies/'+link,
 			}, function(response){});
 		}
