@@ -157,3 +157,12 @@ angular.module('qiku').service('shareVariables', function () {
     }
   }
 })
+.directive('likeBtn', function() {
+  return {
+    link: function(scope, element, attrs) {
+      element.bind('click', function() {
+        $(this).attr('disabled',true);
+      });
+    }
+  }
+})

@@ -35,7 +35,7 @@
 						category:rc.threadDetails.category
 					});
 					$("#replyToThread").htmlcode('');
-					toastr.success("Your reply is added to the thread.", "Qiku India", {"iconClass": 'customer-info'});
+					toastr.success("Your reply is added to the thread.", "Qiku Forums", {"iconClass": 'customer-info'});
 				})
 			})
 		}
@@ -43,6 +43,11 @@
 			var desc = "<div style='background-color:#f2f1f1;padding-left:5px'>-<b>"+posted_by+"</b> said <br />"+desc+"</div>"; 
 			$("#replyToThread").htmlcode(desc);
 			$("html, body").animate({ scrollTop: $(document).height() }, 1000);
+		}
+		rc.like = function(id){
+			$http.put(apiUrl+'/like/'+id).then(function(data){
+				toastr.success("Liked!", "Qiku Forums", {"iconClass": 'customer-info'});
+			});
 		}
 		//get route param fetch and create a promise :)
 		function getThreadId(){
@@ -58,7 +63,7 @@
 		getThreadPromise.then(function(){
 			$http.get(apiUrl+'/reply/'+rc.threadDetails._id+'?limit=10&offset=0').success(function(data){
 				rc.replies = data.replies;
-				$scope.htmlReady();
+				//$scope.htmlReady();
 			})
 		})
 		var wbbOpt = {

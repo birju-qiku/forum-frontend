@@ -66,3 +66,6 @@ select {
 #toast-container > .customer-info {            
   background-color: #eb5b5f;
 }
+.padding-right-5{
+    padding-right: 5px;
+}

@@ -1,5 +1,5 @@
 (function(){
-	angular.module('qiku',['ui.router','seo'])
+	angular.module('qiku',['ui.router'])
 	.config(routers)
 	.constant('apiUrl',config.apiUrl)
 	//.constant('apiUrl','http://localhost:8080')
