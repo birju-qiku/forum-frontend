@@ -1,5 +1,5 @@
 (function(){
-	angular.module('qiku',['ui.router'])
+	angular.module('qiku',['ui.router','angularUtils.directives.dirPagination'])
 	.config(routers)
 	.constant('apiUrl',config.apiUrl)
 	//.constant('apiUrl','http://localhost:8080')
@@ -126,6 +126,18 @@
 		.state('signup',{
 			url:'/signup',
 	    	templateUrl: '/app/signup.html',
+	    	controller: 'LoginController',
+		  	controllerAs:'login'
+		})
+		.state('initiatereset',{
+			url:'/initiatereset',
+	    	templateUrl: '/app/initiate-reset.html',
+	    	controller: 'LoginController',
+		  	controllerAs:'login'
+		})
+		.state('reset',{
+			url:'/reset/:id',
+	    	templateUrl: '/app/reset.html',
 	    	controller: 'LoginController',
 		  	controllerAs:'login'
 		})

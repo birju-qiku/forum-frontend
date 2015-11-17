@@ -1,0 +1,34 @@
+<section id="qiku-login">
+	<form id="qiku-login-form" name="resetForm" style="padding-bottom:20px" novalidate>
+		<ul class='group entry-tab'>
+			<li id="login-tab"><a href="/login">LOGIN</a></li>
+			<li id="signup-tab"><a href="/signup">SIGN UP</a></li>
+		</ul>
+		<div class="input-wrapper">
+			<div style="color:#eb5b5f;padding-top:10px;padding-bottom:10px">Reset your password</div>
+			<input type="password" name="password" placeholder="Password" ng-model="login.user.resetPassword" ng-minlength="6">
+			<div class="noshake">
+				<div ng-show="resetForm.password.$touched">
+		      		<div class="login-error" ng-show="!login.user.resetPassword">You have to think some password for yourself.</div>
+		      		<div class="login-error" ng-show="resetForm.password.$error.minlength">Password should be atleast 6 chars long</div>
+		    	</div>
+	    	</div>
+			<input type="password" name="confirm_password" placeholder="Confirm Password" ng-model="login.user.confirmResetPassword">
+			<div class="noshake">
+				<div ng-show="resetForm.password.$touched && resetForm.confirm_password.$touched">
+		      		<div class="login-error" ng-show="(login.user.resetPassword !== login.user.confirmResetPassword)">Password does not match.</div>
+		    	</div>
+		    	<div ng-show="resetForm.confirm_password.$touched">
+		      		<div class="login-error" ng-show="!login.user.confirmResetPassword">Please type that awesome password again.</div>
+		    	</div>
+		    </div>
+			<button ng-disabled="(login.user.resetPassword !== login.user.confirmResetPassword) || !login.user.resetPassword" ng-click="login.reset()" id="registerbtn" type="submit" class="qiku-login-btn">
+				Reset Password
+			</button>
+			<div class="connect-with">
+				<span class="border-indicator"></span><span class="connect-with-text">or</span><span class="border-indicator"></span>
+			</div>
+			<a class="login-fb-btn" href="#" ng-click="login.fblogin()"><i class="fa fa-facebook"></i>Facebook Login</a>
+		</div>
+	</form>
+</section>

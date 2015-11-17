@@ -13,6 +13,10 @@
 		}
 		nt.category="general";
 		nt.post = function(){
+			if($("#newThread").htmlcode().replace(/(<(?!\/)[^>]+>)+(<\/[^>]+>)+/, "").replace(/\<br\>/g," ").replace(/&nbsp;/g," ").trim() == ""){
+				toastr.success("You need to add description!", "Qiku Forum", {"iconClass": 'customer-info'});
+				return;
+			}
 			var userDetailsPromise = userDetails();
 			userDetailsPromise.then(function(){
 				var obj = {
@@ -25,7 +29,7 @@
 				}
 				$http.post(apiUrl+'/thread',obj).success(function(){
 					$state.go('home.latest');
-					toastr.success("Your thread is added to our forum.", "Qiku India", {"iconClass": 'customer-info'});
+					toastr.success("Your thread is added to our forum.", "Qiku Forum", {"iconClass": 'customer-info'});
 				})
 			})
 		}

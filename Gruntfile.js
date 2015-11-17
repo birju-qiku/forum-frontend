@@ -11,6 +11,7 @@ module.exports = function(grunt) {
           'app/*.js',
           'app/services/*.js',
           'app/controller/*.js',
+          'app/assets/js/dirPagination.js'
           /*'app/bower_components/angular/angular.min.js',
           'app/bower_components/angular-ui-router/release/angular-ui-router.js',
           'app/bower_components/normalize.css/normalize.css',*/
