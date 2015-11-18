@@ -17,6 +17,7 @@
 			}, function(response){});
 		}
 		$http.get(apiUrl+'/thread').success(function(data){
+			$rootScope.$emit('updateOgTags',{ogtitle:'Qiku Forum'});
 			fc.threads = data;
 		});
 		$http.get(apiUrl+'/stats').success(function(data){

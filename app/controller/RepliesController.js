@@ -53,7 +53,7 @@
 		function getThreadId(){
 			return $q(function(resolve,reject){
 				$http.get(apiUrl+'/thread-by-link/'+$stateParams.id).success(function(data){
-					$rootScope.$emit('updateOgTags',{ogtitle:data.title,ogurl:"https://forums.qiku.com/replies/"+$stateParams.id});
+					$rootScope.$emit('updateOgTags',{ogtitle:data.title,ogurl:"https://forums.qiku.com/replies/"+$stateParams.id,ogdesc:data.desc.replace(/<(?:.|\n)*?>/gm, '').substr(0,200)});
 					rc.threadDetails = data;
 					resolve();
 				})

@@ -14,7 +14,7 @@ app.set('views','/');
 app.engine('.html', exphbs({extname: '.html',layoutsDir:'/'}));
 app.use('/app', express.static (__dirname + '/app/'));
 app.get('/*', function (req, res) {
-  res.render(__dirname+'/index.html',{
+  res.render(__dirname+'/index-'+process.env.NODE_ENV+'.html',{
   	layout:false,
   	fbAppId:fbAppId,
   	frontUrl:frontUrl,
