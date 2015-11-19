@@ -1,13 +1,13 @@
 <div>
-	<div class="content comment-outer" dir-paginate="thread in forum.threads | orderBy:'-created_at' | itemsPerPage:15">
-		<div class="comment-inner-left">
+	<div class="content comment-outer" dir-paginate="thread in forum.threads | orderBy:'-replyCount' | itemsPerPage:15">
+		<div class="comment-inner-left" ng-if="thread.replyCount > 5">
 			<img ng-src="{{thread.posted_by_image}}" err-src="/app/assets/img/noimage.jpg"  / >
 			<h5 class="userText">
 				<a href="#" class="username">{{thread.posted_by}}</a>
 				<em class="userTitle">Level: Pluto</em>
 			</h5>
 		</div>
-		<div class="comment-inner-right">
+		<div class="comment-inner-right" ng-if="thread.replyCount > 5">
 			<a ng-click="forum.trackRoute(thread.title,thread._id)" href="/replies/{{thread.link}}"><h2>{{thread.title}}</h2> </a>
 			<div>
 				<ul>

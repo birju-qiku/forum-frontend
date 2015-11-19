@@ -94,9 +94,9 @@
 	        controller: 'ForumController',
 	        controllerAs:'forum'
 	    })
-	    .state('home.latest',{
-	    	url:'latest',
-	    	templateUrl:'/app/latest.html',
+	    .state('home.hot',{
+	    	url:'hot',
+	    	templateUrl:'/app/hot.html',
 	    	controller:'ForumController',
 		  	controllerAs:'forum'
 		})

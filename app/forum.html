@@ -26,8 +26,8 @@
 				<!--tabs view goes here -->
 				<section class="tabs">
 					<ul>
-			        <li for="tab-1" class="tab-label-1"><a thread-panel-color class="panel-color-toggle" href="/"><i class="fa fa-firefox"></i> HOT</a></li>
-			        <li for="tab-2" class="tab-label-2"><a thread-panel-color class="panel-color-toggle" ui-sref="home.latest"><i class="fa fa-bolt"></i> LATEST</a></li>
+					<li for="tab-2" class="tab-label-2"><a thread-panel-color class="panel-color-toggle" href="/"><i class="fa fa-bolt"></i> LATEST</a></li>
+			        <li for="tab-1" class="tab-label-1"><a thread-panel-color class="panel-color-toggle" ui-sref="home.hot"><i class="fa fa-firefox"></i> HOT</a></li>
 			        <li for="tab-3" class="tab-label-3"><a thread-panel-color class="panel-color-toggle" ui-sref="home.all"><i class="fa fa-stack-exchange"></i> ALL</a></li>
 					</ul>
 	            
@@ -35,7 +35,7 @@
 					<!-- comment section goes here -->
 					<!--1st comment -->
 					<div ui-view>
-						<div class="content comment-outer" dir-paginate="thread in forum.threads | orderBy:'-replyCount' | itemsPerPage:15">
+						<div class="content comment-outer" dir-paginate="thread in forum.threads | orderBy:'-created_at' | itemsPerPage:15">
 								<div class="comment-inner-left">
 									<img ng-src="{{thread.posted_by_image}}" err-src="/app/assets/img/noimage.jpg"  / >
 									<h5 class="userText">
