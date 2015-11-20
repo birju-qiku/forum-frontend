@@ -2,7 +2,7 @@
 	<!-- comment section goes here -->
 	<!--1st comment -->
 	<h2 style="padding-left:15px">{{replies.threadDetails.title}}</h2>
-	<div class="content comment-outer" ng-repeat="reply in replies.replies" | orderBy:'-created_at'>
+	<div class="content comment-outer" ng-repeat="reply in replies.replies | orderBy:'created_at'">
 			<div class="comment-inner-left">
 				<img ng-src="{{reply.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
 				<h5 class="userText">
