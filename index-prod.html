@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-controller="mainController">
 	<head>
-		<title ng-if="ogtitle">\{{ogtitle}}</title>
-		<title ng-if="!ogtitle">Qiku Forum</title>
+		<title ng-bind="ogtitle">Qiku Forum</title>
 		<base href="/">
 		<meta name="fragment" content="!" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
