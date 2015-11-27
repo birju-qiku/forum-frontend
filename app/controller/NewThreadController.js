@@ -28,7 +28,7 @@
 					category:nt.category
 				}
 				$http.post(apiUrl+'/thread',obj).success(function(){
-					$state.go('home.latest');
+					$state.go('home');
 					toastr.success("Your thread is added to our forum.", "Qiku Forum", {"iconClass": 'customer-info'});
 				})
 			})
