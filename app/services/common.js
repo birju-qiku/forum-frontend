@@ -39,7 +39,7 @@ angular.module('qiku').service('shareVariables', function () {
                 localStorage.setItem('passed',true);
                 localStorage.setItem('hash',data.data.token);
                 $rootScope.$emit('loggedIn',{username:res.name,image:res.picture.data.url});
-                $state.go('home.latest');
+                $state.go('home');
                 toastr.success("Welcome to Qiku India Forum", "Qiku India", {"iconClass": 'customer-info'});
             },function(err){
                 console.log('new user entry not done:facebook')
@@ -60,7 +60,7 @@ angular.module('qiku').service('shareVariables', function () {
                     localStorage.setItem('hash',data.data.message.token);
                     $http.defaults.headers.common['hash'] = data.data.message.token;
                     $rootScope.$emit('loggedIn',{username:res.name,image:res.picture.data.url});
-                    $state.go('home.latest');
+                    $state.go('home');
                     toastr.success("Welcome to Qiku India Forum", "Qiku India", {"iconClass": 'customer-info'});
                     })
             }else{
