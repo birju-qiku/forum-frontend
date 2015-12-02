@@ -30,7 +30,7 @@
 				}
 				$http.post(apiUrl+'/thread',obj).success(function(){
 					$('#addThread').text("Post");
-					$state.go('home');
+					$state.go('home.all');
 					toastr.success("Your thread is added to our forum.", "Qiku Forum", {"iconClass": 'customer-info'});
 				})
 			})

@@ -26,38 +26,35 @@
 				<!--tabs view goes here -->
 				<section class="tabs">
 					<ul>
-					<li for="tab-2" class="tab-label-2"><a thread-panel-color class="panel-color-toggle" href="/"><i class="fa fa-bolt"></i> LATEST</a></li>
+					<li for="tab-3" class="tab-label-3"><a thread-panel-color class="panel-color-toggle" href="/"><i class="fa fa-stack-exchange"></i> Official</a></li>
 			        <li for="tab-1" class="tab-label-1"><a thread-panel-color class="panel-color-toggle" ui-sref="home.hot"><i class="fa fa-firefox"></i> HOT</a></li>
-			        <li for="tab-3" class="tab-label-3"><a thread-panel-color class="panel-color-toggle" ui-sref="home.all"><i class="fa fa-stack-exchange"></i> Official</a></li>
+			        <li for="tab-2" class="tab-label-2"><a thread-panel-color class="panel-color-toggle" ui-sref="home.all"><i class="fa fa-bolt"></i> LATEST</a></li>
 					</ul>
 	            
 				    <div class="clear-shadow"></div>
 					<!-- comment section goes here -->
 					<!--1st comment -->
 					<div ui-view>
-						<div class="content comment-outer" dir-paginate="thread in forum.threads | orderBy:'-created_at' | itemsPerPage:15">
-								<div class="comment-inner-left">
-									<img ng-src="{{thread.posted_by_image}}" err-src="/app/assets/img/noimage.jpg"  / >
-									<h5 class="userText">
-										<a href="#" class="username">{{thread.posted_by}}</a>
-										<em class="userTitle">Level: Pluto</em>
-									</h5>
+						<div class="content comment-outer" ng-repeat="thread in forum.threads | filter:{type:'official'}">
+							<div class="comment-inner-left">
+								<img ng-src="{{thread.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
+								<h5 class="userText">
+									<a href="#" class="username">{{thread.posted_by}}</a>
+									<em class="userTitle">Level: Pluto</em>
+								</h5>
+							</div>
+							<div class="comment-inner-right">
+								<a ng-click="forum.trackRoute(thread.title,thread._id)" href="/replies/{{thread.link}}"><h2>{{thread.title}}</h2> </a>
+								<div>
+									<ul>
+										<li class="comment-width-65"><i class="fa fa-eye"></i> {{thread.viewCount}}</li>
+										<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> {{thread.replyCount}}</li>
+										<li class="yellow-button-view">{{thread.category}}</li>
+										<li><a class="fb-share-btn" ng-click="forum.fbshare(thread.link)" href="#"><i class="fa fa-facebook fb-share-btn-i"></i>Share</a></li>
+										<li class="pull-right">{{thread.created_at | date:'mediumDate'}} | {{thread.created_at | date:'shortTime'}}</li>
+									</ul>
 								</div>
-								<div class="comment-inner-right">
-									<a ng-href="{{forum.$state.href('home.replies',{id:thread.link})}}"><h2>{{thread.title}}</h2> </a>
-									<div>
-										<ul>
-											<li class="comment-width-65"><i class="fa fa-eye"></i> {{thread.viewCount}}</li>
-											<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> {{thread.replyCount}}</li>
-											<li class="yellow-button-view">{{thread.category}}</li>
-											<li><a class="fb-share-btn" ng-click="forum.fbshare(thread.link)" href="#"><i class="fa fa-facebook fb-share-btn-i"></i>Share</a></li>
-											<li class="pull-right">{{thread.created_at | date:'mediumDate'}} | {{thread.created_at | date:'shortTime'}}</li>
-										</ul>
-									</div>
-								</div>
-					    </div>
-					    <div class="pagination">
-					    	<dir-pagination-controls></dir-pagination-controls>
+							</div>
 						</div>
 				 	</div>
 				</section>
