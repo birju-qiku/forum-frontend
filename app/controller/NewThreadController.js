@@ -17,6 +17,7 @@
 				toastr.success("You need to add description!", "Qiku Forum", {"iconClass": 'customer-info'});
 				return;
 			}
+			$('#addThread').text("Posting..");
 			var userDetailsPromise = userDetails();
 			userDetailsPromise.then(function(){
 				var obj = {
@@ -28,6 +29,7 @@
 					category:nt.category
 				}
 				$http.post(apiUrl+'/thread',obj).success(function(){
+					$('#addThread').text("Post");
 					$state.go('home');
 					toastr.success("Your thread is added to our forum.", "Qiku Forum", {"iconClass": 'customer-info'});
 				})
