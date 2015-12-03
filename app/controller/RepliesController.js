@@ -17,6 +17,8 @@
 			userDetailsPromise.then(function(){
 				var obj = {
 					thread_id:rc.threadDetails._id,
+					thread_title:rc.threadDetails.title,
+					thread_link:rc.threadDetails.link,
 					desc:$("#replyToThread").htmlcode(),
 					posted_by:rc.userDetails.username,
 					posted_by_id:rc.userDetails._id,

@@ -1,6 +1,13 @@
 (function(){
-	angular.module('qiku',['ui.router','angularUtils.directives.dirPagination'])
+	angular.module('qiku',['ui.router','angularUtils.directives.dirPagination','doowb.angular-pusher'])
 	.config(routers)
+	.config(['PusherServiceProvider',
+	  function(PusherServiceProvider) {
+	    PusherServiceProvider
+	    .setToken('f2b00087f977c39298f4')
+	    .setOptions({});
+	  }
+	])
 	.constant('apiUrl',config.apiUrl)
 	//.constant('apiUrl','http://localhost:8080')
 	.run(['$http','$rootScope','apiUrl','$window','fbAuth',function($http,$rootScope,apiUrl,$window,fbAuth){
@@ -45,7 +52,6 @@
 	    //fbAuth.watchLoginChange();
 
 	  };
-
 	  // Are you familiar to IIFE ( http://bit.ly/iifewdb ) ?
 
 	  (function(d, s, id) {
@@ -60,8 +66,24 @@
 	.controller('headerController',headerCtrlFunction)
 	.controller('mainController',mainCtrlFunction);
 	headerCtrlFunction.$inject = ['$scope','$rootScope','$http','$state','apiUrl','$timeout','$window'];
-	mainCtrlFunction.$inject = ['$scope','$rootScope'];
-	function mainCtrlFunction($scope,$rootScope){
+	mainCtrlFunction.$inject = ['$scope','$rootScope','Pusher','$state'];
+	function mainCtrlFunction($scope,$rootScope,Pusher,$state){
+	    Pusher.subscribe('test_channel', 'my_event', function (data) {
+	    	toastr.options = {
+			  "closeButton": true,
+			  "timeOut": "500000",
+			  onclick: function () { $state.go('home.replies',{id:data.url});} 
+			}
+	    	toastr.success(data.message, "Qiku Forums", {"iconClass": 'customer-info'});
+	    });
+	    Pusher.subscribe('test_channel', 'second_event', function (data) {
+	    	toastr.options = {
+			  "closeButton": true,
+			  "timeOut": "500000",
+			  onclick: function () { $state.go('home.replies',{id:data.url});} 
+			}
+	    	toastr.success(data.message, "Qiku Forums", {"iconClass": 'customer-info'});
+	    });
 		$rootScope.$on('updateOgTags',function(event,data){
 			for(i in data){
 				$scope[i] = data[i];
