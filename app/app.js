@@ -125,7 +125,7 @@
 		.state('home.all',{
 			url:'all',
 	    	templateUrl:'/app/all.html',
-		  	controller:'ForumController',
+		  	controller:'HotController',
 		  	controllerAs:'forum'
 		})
 		.state('home.newThread',{
