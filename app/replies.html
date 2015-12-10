@@ -2,7 +2,7 @@
 	<!-- comment section goes here -->
 	<!--1st comment -->
 	<h2 style="padding-left:15px">{{replies.threadDetails.title}}</h2>
-	<div class="content comment-outer" ng-repeat="reply in replies.replies | orderBy:'created_at'">
+	<div class="content comment-outer" dir-paginate="reply in replies.replies | orderBy:'created_at' | itemsPerPage:20">
 			<div class="comment-inner-left">
 				<img ng-src="{{reply.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
 				<h5 class="userText">
@@ -22,4 +22,7 @@
 	 </div>
 	 <textarea ng-model="replies.reply" id="replyToThread"></textarea>
 	 <button ng-disabled='replies.replyDisabled' ng-click="replies.postReply()" class="normal-red-btn">Reply</button>
+	 <div class="pagination">
+    	<dir-pagination-controls></dir-pagination-controls>
+	</div>
 </div>

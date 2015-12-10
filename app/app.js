@@ -119,7 +119,7 @@
 	    .state('home.hot',{
 	    	url:'hot',
 	    	templateUrl:'/app/hot.html',
-	    	controller:'ForumController',
+	    	controller:'HotController',
 		  	controllerAs:'forum'
 		})
 		.state('home.all',{

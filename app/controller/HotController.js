@@ -1,27 +1,27 @@
 (function(){
-	angular.module('qiku').controller('ForumController',forumController);
-	forumController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope'];
-	function forumController($scope,$http,$state,apiUrl,$stateParams,$rootScope){
+	angular.module('qiku').controller('HotController',hotController);
+	hotController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope'];
+	function hotController($scope,$http,$state,apiUrl,$stateParams,$rootScope){
 		var param = $state.href($state.current.name, $state.params);
 		if(param == '/all'){
 			$('.tab-label-2 > a').trigger('click');
 		}else if(param == '/hot'){
 			$('.tab-label-1 > a').trigger('click');
 		}
-		var fc = this;
-		fc.$state = $state;
-		fc.fbshare = function(link){
+		var hc = this;
+		hc.$state = $state;
+		hc.fbshare = function(link){
 			FB.ui({
 			  method: 'share',
 			  href: 'https://forums.qiku.com/replies/'+link,
 			}, function(response){});
 		}
-		$http.get(apiUrl+'/officialthread').success(function(data){
+		$http.get(apiUrl+'/thread').success(function(data){
 			//$rootScope.$emit('updateOgTags',{ogtitle:'Qiku Forum'});
-			fc.threads = data;
+			hc.threads = data;
 		});
 		$http.get(apiUrl+'/stats').success(function(data){
-			fc.stats = data.stats;
+			hc.stats = data.stats;
 		});
 	}
 })();
