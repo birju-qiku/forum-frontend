@@ -14,7 +14,6 @@
  * http://www.ng-newsletter.com/advent2013/#!/day/17
  */
 
-'use strict';
 
 angular.module('doowb.angular-pusher', [])
 
