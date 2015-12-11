@@ -12,6 +12,10 @@
 			})	
 		}
 		rc.postReply = function(){
+			if($("#replyToThread").htmlcode().replace(/(<(?!\/)[^>]+>)+(<\/[^>]+>)+/, "").replace(/\<br\>/g," ").replace(/&nbsp;/g," ").trim() == ""){
+				toastr.success("You need to add description!", "Qiku Forum", {"iconClass": 'customer-info'});
+				return;
+			}
 			rc.replyDisabled = true;
 			var userDetailsPromise = userDetails();
 			userDetailsPromise.then(function(){
