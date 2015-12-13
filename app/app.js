@@ -1,5 +1,5 @@
 (function(){
-	angular.module('qiku',['ui.router','angularUtils.directives.dirPagination','doowb.angular-pusher'])
+	angular.module('qiku',['ui.router','angularUtils.directives.dirPagination','doowb.angular-pusher','ui.bootstrap'])
 	.config(routers)
 	.config(['PusherServiceProvider',
 	  function(PusherServiceProvider) {

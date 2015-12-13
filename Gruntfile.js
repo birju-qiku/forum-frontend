@@ -9,6 +9,8 @@ module.exports = function(grunt) {
         src: [
           'app/assets/js/jquery-1.11.js',
           'app/assets/js/bbeditor.js',
+          'app/assets/js/ui-bootstrap.js',
+          'app/assets/js/ui-bootstrap-tpls.min.js',
           'app/*.js',
           'app/services/*.js',
           'app/controller/*.js',
