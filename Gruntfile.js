@@ -17,8 +17,8 @@ module.exports = function(grunt) {
           'app/assets/js/dirPagination.js',
           'app/bower_components/toastr/toastr.js',
           'app/bower_components/angular-pusher/angular-pusher.js',
-          'app/bower_components/angular-ui-router/release/angular-ui-router.js',
-          'app/assets/js/angular.sanitize.min.js'
+          'app/assets/js/angular.sanitize.min.js',
+          'app/bower_components/angular-ui-router/release/angular-ui-router.js'
           /*'app/bower_components/angular/angular.min.js',
           'app/bower_components/angular-ui-router/release/angular-ui-router.js',
           'app/bower_components/normalize.css/normalize.css',*/
