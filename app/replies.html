@@ -2,6 +2,11 @@
 	<!-- comment section goes here -->
 	<!--1st comment -->
 	<h2 style="padding-left:15px">{{replies.threadDetails.title}}</h2>
+	<div class="close-outer">
+		<div class="close-inner">
+			Thread closed
+		</div>
+	</div>
 	<div class="content comment-outer" dir-paginate="reply in replies.replies | orderBy:'created_at' | itemsPerPage:20">
 			<div class="comment-inner-left">
 				<img ng-src="{{reply.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
@@ -11,7 +16,7 @@
 					</h5>
 			</div>
 			<div class="comment-inner-right">
-				<p dynamichtml="reply.desc" class="non-quoted"></p>
+				<p ng-bind-html="reply.desc" class="non-quoted"></p>
 				<div>
 					<ul>
 						<!--<li like-btn ng-click="replies.like(reply._id)" style="cursor:pointer" class="pull-right "><i class="fa fa-heart padding-right-5"></i>Like</li> -->
