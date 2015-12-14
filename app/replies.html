@@ -2,11 +2,11 @@
 	<!-- comment section goes here -->
 	<!--1st comment -->
 	<h2 style="padding-left:15px">{{replies.threadDetails.title}}</h2>
-	<div class="close-outer">
+	<!--<div class="close-outer">
 		<div class="close-inner">
 			Thread closed
 		</div>
-	</div>
+	</div> -->
 	<div class="content comment-outer" dir-paginate="reply in replies.replies | orderBy:'created_at' | itemsPerPage:20">
 			<div class="comment-inner-left">
 				<img ng-src="{{reply.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
