@@ -1,7 +1,7 @@
 (function(){
-	angular.module('qiku').controller('HotController',hotController);
-	hotController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope'];
-	function hotController($scope,$http,$state,apiUrl,$stateParams,$rootScope){
+	angular.module('qiku').controller('LatestController',latestController);
+	latestController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope'];
+	function latestController($scope,$http,$state,apiUrl,$stateParams,$rootScope){
 		var param = $state.href($state.current.name, $state.params);
 		if(param == '/all'){
 			$('.tab-label-2 > a').trigger('click');
@@ -29,7 +29,7 @@
 		};
     	function getResultsPage(limit,offset) {
         // this is just an example, in reality this stuff should be in a service
-        	$http.get(apiUrl+'/thread/hot?limit='+limit+'&offset='+offset).success(function(data){
+        	$http.get(apiUrl+'/thread?limit='+limit+'&offset='+offset).success(function(data){
 			//$rootScope.$emit('updateOgTags',{ogtitle:'Qiku Forum'});
 				hc.threads = data.data;
 				hc.totalThreads = data.count;

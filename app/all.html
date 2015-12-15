@@ -1,5 +1,5 @@
 <div>
-	<div class="content comment-outer" dir-paginate="thread in forum.threads | orderBy:'-created_at' | itemsPerPage:15">
+	<div class="content comment-outer" dir-paginate="thread in forum.threads | itemsPerPage:forum.threadsPerPage" total-items="forum.totalThreads" current-page="forum.pagination.current">
 			<div class="comment-inner-left">
 				<img ng-src="{{thread.posted_by_image}}" err-src="/app/assets/img/noimage.jpg"  / >
 				<h5 class="userText">
@@ -21,6 +21,6 @@
 			</div>
 	</div>
 	<div class="pagination">
-    	<dir-pagination-controls></dir-pagination-controls>
+    	<dir-pagination-controls on-page-change="forum.pageChanged(newPageNumber)"></dir-pagination-controls>
 	</div>
 </div>
