@@ -55,6 +55,22 @@
 				toastr.success("Liked!", "Qiku Forums", {"iconClass": 'customer-info'});
 			});
 		}
+		rc.uploadcsv = function(file){
+        //console.log('file is ' + JSON.stringify(file));
+        	var fd = new FormData();
+        	//fd.append('id', id);
+        	fd.append('attachment', file);
+        	$('#replyAttach').text('Uploading');
+        	$http.post(apiUrl+'/attach',fd, {
+            	transformRequest: angular.identity,
+            	headers: {'Content-Type': undefined}
+        	}).success(function(data){
+        		var tmp = $("#replyToThread").htmlcode();
+        		$("#replyToThread").htmlcode(tmp+"<img src="+data.url+" />");
+        		$('#replyAttach').text('Attach Image');
+        	})
+	    };
+
 		//get route param fetch and create a promise :)
 		function getThreadId(){
 			return $q(function(resolve,reject){

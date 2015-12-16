@@ -26,7 +26,11 @@
 			</div>
 	 </div>
 	 <textarea ng-show="replies.threadDetails.status != 2"  ng-model="replies.reply" id="replyToThread"></textarea>
-	 <button ng-show="replies.threadDetails.status != 2" ng-disabled='replies.replyDisabled' ng-click="replies.postReply()" class="normal-red-btn">Reply</button>
+	 <button style="float:left" ng-show="replies.threadDetails.status != 2" ng-disabled='replies.replyDisabled' ng-click="replies.postReply()" class="normal-red-btn">Reply</button>
+	 <div class="fileuploadouter">
+       <button id="replyAttach" class="wide-red-btn">Attach Image</button>
+       <input type="file" name="chatUpload" file-model="myFile" class="fileuploadinput ng-isolate-scope" callback-fn="replies.uploadcsv(file)">
+    </div>
 	 <div class="pagination">
     	<dir-pagination-controls></dir-pagination-controls>
 	</div>

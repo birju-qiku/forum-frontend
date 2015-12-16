@@ -449,6 +449,13 @@ button.normal-red-btn{
 	color: #ffffff;
 	margin: 10px;
 }
+button.wide-red-btn{
+	background-color: #eb5b5f;
+	height: 30px;
+	width: 200px;
+	color: #ffffff;
+	margin: 10px;
+}
 .non-quoted img{
 	max-width: 100%
 }
@@ -555,3 +562,24 @@ button.normal-red-btn{
   color:#666666;
 }
 /* ends here */
+.fileuploadouter{
+	position: relative;
+	overflow: hidden;
+	margin: 5px;
+	width: 200px !important;
+	height: 40px !important;
+	float: left;
+	margin-top: 0px !important;
+	cursor: pointer !important;
+}
+.fileuploadinput{
+	position: absolute;
+	top:0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter:alpha(opacity=0);
+}
