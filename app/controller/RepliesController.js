@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku').controller('RepliesController',repliesController);
-	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope','Upload'];
-	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope,Upload){
+	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope','Upload','$sce','$sanitize'];
+	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope,Upload,$sce,$sanitize){
 		var rc = this
 		function userDetails(){
 			return $q(function(resolve,reject){
@@ -45,8 +45,9 @@
 				})
 			})
 		}
-		rc.fillReply = function(desc,posted_by){
-			var desc = "<div style='background-color:#f2f1f1;padding-left:5px'>-<b>"+posted_by+"</b> said <br />"+desc+"</div>"; 
+		rc.fillReply = function($event,posted_by){
+			var quote = $($event.target).parents().eq(3).find('.actualDesc').html()
+			var desc = "<div style='background-color:#f2f1f1;padding-left:5px'>-<b>"+posted_by+"</b> said <br />"+quote+"</div>"; 
 			$("#replyToThread").htmlcode(desc);
 			$("html, body").animate({ scrollTop: $(document).height() }, 1000);
 		}
