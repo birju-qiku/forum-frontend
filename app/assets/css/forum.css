@@ -492,6 +492,9 @@ button.wide-red-btn{
 @media screen and (max-width: 768px)
 {
 	/* two column main div */
+	.fileuploadouter{
+		display: none;
+	}
 .main-outer-div
 {
 	 padding: 0px !important;
