@@ -18,7 +18,8 @@ module.exports = function(grunt) {
           'app/bower_components/toastr/toastr.js',
           'app/bower_components/angular-pusher/angular-pusher.js',
           'app/assets/js/angular.sanitize.min.js',
-          'app/bower_components/angular-ui-router/release/angular-ui-router.js'
+          'app/bower_components/angular-ui-router/release/angular-ui-router.js',
+          'app/bower_components/ng-file-upload/ng-file-upload.min.js'
           /*'app/bower_components/angular/angular.min.js',
           'app/bower_components/angular-ui-router/release/angular-ui-router.js',
           'app/bower_components/normalize.css/normalize.css',*/

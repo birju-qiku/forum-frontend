@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku').controller('RepliesController',repliesController);
-	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope'];
-	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope){
+	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope','Upload'];
+	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope,Upload){
 		var rc = this
 		function userDetails(){
 			return $q(function(resolve,reject){
@@ -70,7 +70,31 @@
         		$('#replyAttach').text('Attach Image');
         	})
 	    };
+	    rc.uploadFiles = function(file, errFiles) {
+	    	$('#replyAttach').text('Attaching');
+	        rc.f = file;
+	        rc.errFile = errFiles && errFiles[0];
+	        if (file) {
+	            file.upload = Upload.upload({
+	                url: apiUrl+'/attach',
+	                data: {attachment: file}
+	            });
 
+	            file.upload.then(function (response) {
+	                var tmp = $("#replyToThread").htmlcode();
+	        		$("#replyToThread").htmlcode(tmp+"<br /><img style='max-width:500px' src="+response.data.url+" />");
+	        		$('#replyAttach').text('Attach Image');
+	            }, function (response) {
+	                if (response.status > 0){
+	                	$('#replyAttach').text('Attach Image');
+	                	rc.errorMsg = response.status + ': ' + response.data;
+	                }
+	            }, function (evt) {
+	                file.progress = Math.min(100, parseInt(100.0 * 
+	                                         evt.loaded / evt.total));
+	            });
+	        }   
+	    }
 		//get route param fetch and create a promise :)
 		function getThreadId(){
 			return $q(function(resolve,reject){
