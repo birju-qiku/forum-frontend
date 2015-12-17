@@ -85,8 +85,8 @@
 	        		$("#replyToThread").htmlcode(tmp+"<br /><img style='max-width:500px' src="+response.data.url+" />");
 	        		$('#replyAttach').text('Attach Image');
 	            }, function (response) {
+	            	$('#replyAttach').text('Attach Image');
 	                if (response.status > 0){
-	                	$('#replyAttach').text('Attach Image');
 	                	rc.errorMsg = response.status + ': ' + response.data;
 	                }
 	            }, function (evt) {

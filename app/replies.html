@@ -29,7 +29,7 @@
 	 <button style="float:left" ng-show="replies.threadDetails.status != 2" ng-disabled='replies.replyDisabled' ng-click="replies.postReply()" class="normal-red-btn">Reply</button>
 	 <div class="fileuploadouter">
        <button id="replyAttach" class="wide-red-btn" type="file" ngf-select="replies.uploadFiles($file, $invalidFiles)"
-          accept="image/*" ngf-max-height="1000" ngf-max-size="3MB">Attach Image</button>
+          accept="image/*" ngf-max-size="3MB">Attach Image</button>
        <!--<input type="file" name="chatUpload" file-model="myFile" class="fileuploadinput ng-isolate-scope" callback-fn="replies.uploadcsv(file)"> -->
     </div>
     <div style="font:smaller">{{replies.errFile.$error}} {{replies.errFile.$errorParam}}</div>     
