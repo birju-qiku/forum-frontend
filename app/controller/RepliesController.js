@@ -83,7 +83,7 @@
 
 	            file.upload.then(function (response) {
 	                var tmp = $("#replyToThread").htmlcode();
-	        		$("#replyToThread").htmlcode(tmp+"<br /><img style='max-width:500px' src="+response.data.url+" />");
+	        		$("#replyToThread").htmlcode(tmp+"<br /><img class='squezeimage' src="+response.data.url+" />");
 	        		$('#replyAttach').text('Attach Image');
 	            }, function (response) {
 	            	$('#replyAttach').text('Attach Image');

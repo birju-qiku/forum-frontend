@@ -487,10 +487,16 @@ button.wide-red-btn{
 	padding-right: 5px;
 	margin-left: 5px;
 }
+.squezeimage{
+	max-width:500px
+}
 /* ends here */
 /* right column ends here */
 @media screen and (max-width: 768px)
 {
+	.squezeimage{
+		max-width:270px;
+	}
 	/* two column main div */
 .main-outer-div
 {
