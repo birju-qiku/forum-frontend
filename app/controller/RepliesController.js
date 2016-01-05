@@ -27,7 +27,8 @@
 					posted_by:rc.userDetails.username,
 					posted_by_id:rc.userDetails._id,
 					posted_by_image:rc.userDetails.image,
-					category:rc.threadDetails.category
+					category:rc.threadDetails.category,
+					stand:rc.userDetails.stand
 				}
 				$http.post(apiUrl+'/reply',obj).success(function(data){
 					rc.replyDisabled = false;
@@ -38,7 +39,8 @@
 						posted_by:rc.userDetails.username,
 						posted_by_id:rc.userDetails._id,
 						posted_by_image:rc.userDetails.image,
-						category:rc.threadDetails.category
+						category:rc.threadDetails.category,
+						stand:rc.userDetails.stand
 					});
 					$("#replyToThread").htmlcode('');
 					toastr.success("Your reply is added to the thread.", "Qiku Forums", {"iconClass": 'customer-info'});

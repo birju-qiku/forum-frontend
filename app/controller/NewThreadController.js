@@ -26,7 +26,8 @@
 					posted_by:nt.userDetails.username,
 					posted_by_id:nt.userDetails._id,
 					posted_by_image:nt.userDetails.image,
-					category:nt.category
+					category:nt.category,
+					stand:nt.userDetails.stand
 				}
 				$http.post(apiUrl+'/thread',obj).success(function(){
 					$('#addThread').text("Post");

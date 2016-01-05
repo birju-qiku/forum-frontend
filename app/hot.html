@@ -4,7 +4,8 @@
 			<img ng-src="{{thread.posted_by_image}}" err-src="/app/assets/img/noimage.jpg"  / >
 			<h5 class="userText">
 				<a href="#" class="username">{{thread.posted_by}}</a>
-				<em class="userTitle">Level: Pluto</em>
+				<em ng-if="!thread.stand" class="userTitle">Level: Pluto</em>
+					<div ng-if="thread.stand" style="background-color:#eb5b5f;width:65px;margin:0 auto;color:white">Team Qiku</div>
 			</h5>
 		</div>
 		<div class="comment-inner-right">

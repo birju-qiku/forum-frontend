@@ -12,7 +12,8 @@
 				<img ng-src="{{reply.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
 				<h5 class="userText">
 					<a href="#" class="username">{{reply.posted_by}}</a>
-					<em class="userTitle">Level: Pluto</em>
+					<em ng-if="!reply.stand" class="userTitle">Level: Pluto</em>
+					<div ng-if="reply.stand" style="background-color:#eb5b5f;width:65px;margin:0 auto;color:white">Team Qiku</div>
 					</h5>
 			</div>
 			<div class="comment-inner-right">
