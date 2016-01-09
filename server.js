@@ -15,7 +15,10 @@ app.engine('.html', exphbs({extname: '.html',layoutsDir:'/'}));
 app.use('/app', express.static (__dirname + '/app/'));
 //app.get('/robots.txt',function(req,res){res.render(__dirname+'/robots.txt',{layout:false})});
 app.get('/*', function (req, res) {
-  if('/robots.txt' === req.url){
+  if('/privacy.html' === req.url){
+    res.render(__dirname+'/privacy.html');
+  }
+  else if('/robots.txt' === req.url){
     res.type('text/plain');
     res.send('User-agent: *\nDisallow:');
   }else{
