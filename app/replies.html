@@ -13,7 +13,8 @@
 				<h5 class="userText">
 					<a href="#" class="username">{{reply.posted_by}}</a>
 					<em ng-if="!reply.stand" class="userTitle">Level: Pluto</em>
-					<div ng-if="reply.stand" style="background-color:#eb5b5f;width:65px;margin:0 auto;color:white">Team Qiku</div>
+					<div ng-if="reply.stand == 'clear'" style="background-color:#eb5b5f;width:65px;margin:0 auto;color:white">Team Qiku</div>
+					<div ng-if="reply.stand == 'moderator'" style="background-color:#eb5b5f;width:65px;margin:0 auto;color:white">Moderator</div>
 					</h5>
 			</div>
 			<div class="comment-inner-right">
@@ -27,7 +28,7 @@
 			</div>
 	 </div>
 	 <textarea ng-show="replies.threadDetails.status != 2"  id="replyToThread"></textarea>
-	 <button style="float:left" ng-show="replies.threadDetails.status != 2" ng-disabled='replies.replyDisabled' ng-click="replies.postReply()" class="normal-red-btn">Reply</button>
+	 <button style="float:left" ng-show="replies.threadDetails.status != 2" ng-disabled='replies.replyDisabled' ng-click="replies.postReply()" class="normal-red-btn" id="postReply">Reply</button>
 	 <div ng-show="replies.threadDetails.status != 2" class="fileuploadouter">
        <button id="replyAttach" class="wide-red-btn" type="file" ngf-select="replies.uploadFiles($file, $invalidFiles)"
           accept="image/*" ngf-max-size="3MB">Attach Image</button>

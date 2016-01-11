@@ -16,6 +16,7 @@
 				toastr.success("You need to add description!", "Qiku Forum", {"iconClass": 'customer-info'});
 				return;
 			}
+			$('#postReply').html('Replying');
 			rc.replyDisabled = true;
 			var userDetailsPromise = userDetails();
 			userDetailsPromise.then(function(){
@@ -44,6 +45,7 @@
 					});
 					$("#replyToThread").htmlcode('');
 					toastr.success("Your reply is added to the thread.", "Qiku Forums", {"iconClass": 'customer-info'});
+					$('#postReply').html('Reply');
 				})
 			})
 		}

@@ -491,6 +491,101 @@ button.wide-red-btn{
 	max-width:500px
 }
 /* ends here */
+/* profile code goes here */
+.outer-div-zero-bottom-pad {
+	padding-bottom: 0px;
+}
+.main-outer-div-profile
+{
+	width:100%; 
+	height:100%;  
+	/*padding:40px;*/
+	padding-top: 0px;
+	padding-bottom: 40px;
+	background-color: #FFF;
+	overflow: hidden;
+}
+.left-profile-div {
+	float:left; 
+	width:74.5%; 
+	margin-left:2.5%;
+	margin-right:2.5%; 
+	background-color:#fff;
+}
+.left-main-div-profile
+{
+	float:left; 
+	width:54%;  
+	margin-left: 2.5%;
+	margin-top: 20px;
+	background-color:#fff;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4); 
+   -moz-box-shadow: 0px 1px 3px rgba(23, 69, 88, .5);
+}
+.panel-margin-top-zero {
+	margin-top: 0px !important;
+}
+.comment-inner-left-profile
+{
+	float:left; 
+	width:15%; 
+	margin-top:1%;
+}
+.comment-inner-left-profile img 
+{
+	width:75px; 
+	height:75px; 
+	border-radius:50%; 
+	margin-left:auto; 
+	margin-right:auto; 
+	display:block;
+
+}
+
+.comment-inner-left-profile h5
+{
+	margin-top: 5px !important;
+    margin-bottom: 0px !important;
+}
+.comment-inner-left-profile .userText,.username
+{
+	text-align: center;
+	text-transform: uppercase;
+	color:#eb5b5f;
+	word-wrap: break-word;
+}
+.comment-inner-left-profile .userTitle
+{
+	font-size: 8px;
+	display: block;
+}
+.right-main-div-profile
+{
+	float:left; 
+	width:18%; 
+	background-color:#fff; 
+	margin-left: 2.5%;
+	margin-top: 20px;
+}
+.right-profile-div
+{
+	float:left; 
+	width:18%; 
+	background-color:#fff; 
+}
+.panel-category-profile
+{
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.0) !important;
+    -moz-box-shadow: 0px 1px 3px rgba(23, 69, 88, 0.0) !important;
+}
+.user-profile-section {
+	background-color: #eb5b5f;
+	height: 110px;
+}
+.white-text {color: #ffffff !important;}
+.border-less-bottom {border-bottom: 0px !important;}
+/*profile styling end here*/
+
 /* right column ends here */
 @media screen and (max-width: 768px)
 {
@@ -517,7 +612,10 @@ button.wide-red-btn{
 	}
 	.qiku-nav ul li {
     float: right;
-}
+	}
+	.user-profile-section { height: auto !important;}
+.left-profile-div {margin-bottom: 20px;}
+.comment-inner-left-profile img {width: 100px; height: 100px;}
 
 }
   .typeahead-demo .custom-popup-wrapper {

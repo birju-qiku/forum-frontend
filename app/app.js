@@ -68,7 +68,7 @@
 	headerCtrlFunction.$inject = ['$scope','$rootScope','$http','$state','apiUrl','$timeout','$window'];
 	mainCtrlFunction.$inject = ['$scope','$rootScope','Pusher','$state'];
 	function mainCtrlFunction($scope,$rootScope,Pusher,$state){
-	    Pusher.subscribe('test_channel', 'my_event', function (data) {
+	    /*Pusher.subscribe('test_channel', 'my_event', function (data) {
 	    	toastr.options = {
 			  "closeButton": true,
 			  "timeOut": "500000",
@@ -83,7 +83,7 @@
 			  onclick: function () { $state.go('home.replies',{id:data.url});} 
 			}
 	    	toastr.success(data.message, "Qiku Forums", {"iconClass": 'customer-info'});
-	    });
+	    });*/
 		$rootScope.$on('updateOgTags',function(event,data){
 			for(i in data){
 				$scope[i] = data[i];
@@ -162,6 +162,12 @@
 	    	templateUrl: '/app/reset.html',
 	    	controller: 'LoginController',
 		  	controllerAs:'login'
+		})
+		.state('profile',{
+			url:'/profile',
+	    	templateUrl: '/app/profile.html',
+	    	controller: 'ProfileController',
+		  	controllerAs:'profile'
 		})
 		// configure html5 to get links working on jsfiddle
 		$locationProvider.html5Mode(true);
