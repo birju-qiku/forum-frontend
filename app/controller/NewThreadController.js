@@ -18,6 +18,7 @@
 				return;
 			}
 			$('#addThread').text("Posting..");
+			nt.postThreadDisabled = true;
 			var userDetailsPromise = userDetails();
 			userDetailsPromise.then(function(){
 				var obj = {
