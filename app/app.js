@@ -169,6 +169,11 @@
 	    	controller: 'ProfileController',
 		  	controllerAs:'profile'
 		})
+		.state('home.warranty',{
+			url:'extended-warranty',
+	    	templateUrl:'/app/extended-warranty.html',
+		  	controller:'WarrantyController'
+		})
 		// configure html5 to get links working on jsfiddle
 		$locationProvider.html5Mode(true);
 		$httpProvider.interceptors.push('httpErrorInterceptor');

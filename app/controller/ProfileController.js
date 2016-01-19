@@ -2,7 +2,6 @@
 	angular.module('qiku').controller('ProfileController',profileController);
 	profileController.$inject = ['$scope','$http','$state','apiUrl','$rootScope'];
 	function profileController($scope,$http,$state,apiUrl,$rootScope){
-		alert('asd');
 		/*var param = $state.href($state.current.name, $state.params);
 		if(param == '/all'){
 			$('.tab-label-2 > a').trigger('click');
