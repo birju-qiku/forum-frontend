@@ -57,11 +57,13 @@
 			$("html, body").animate({ scrollTop: $(document).height() }, 1000);
 		}
 		rc.like = function(id,stack){
+			stack.up = true;
 			$http.put(apiUrl+'/like/'+id).then(function(data){
 				if(!stack.likes){stack.likes = []}
 				stack.likes.push({userid:id});
-				stack.up = true;
 				toastr.success("Liked!", "Qiku Forums", {"iconClass": 'customer-info'});
+			},function(err){
+				stack.up = false;
 			});
 		}
 		rc.uploadcsv = function(file){
@@ -108,6 +110,7 @@
 	    	console.log(needle);
 	    	console.log(haystack);
 	    	var found = {};
+	    	if(typeof(needle) === 'undefined'){needle = 'string'}
 	    	found = $filter('filter')(haystack, {userid: needle}, true);
 	    	if(!$.isEmptyObject(found)){
 	    		return true;

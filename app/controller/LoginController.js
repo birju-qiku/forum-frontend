@@ -34,6 +34,7 @@
 			$http.post(apiUrl+'/user/login',lc.user).then(function(data){
 				localStorage.setItem('passed',true);
 				localStorage.setItem('hash',data.data.token);
+				localStorage.setItem('userid',data.data._id);
 				$http.defaults.headers.common['hash'] = data.data.token;
 				$rootScope.$emit('loggedIn',{username:data.data.username,image:''})
 				$state.go('home');

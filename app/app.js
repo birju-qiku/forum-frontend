@@ -99,7 +99,7 @@
 		$scope.logout = function(){
 			$http.put(apiUrl+'/user/logout').success(function(data){
 				localStorage.removeItem('passed');
-				//localStorage.removeItem('hash');
+				localStorage.removeItem('userid');
 				$rootScope.$emit('loggedIn',false);
 				$state.go('login');
 				//$window.location.reload();
