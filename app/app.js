@@ -100,6 +100,7 @@
 			$http.put(apiUrl+'/user/logout').success(function(data){
 				localStorage.removeItem('passed');
 				localStorage.removeItem('userid');
+				localStorage['hash'] = data.token;
 				$rootScope.$emit('loggedIn',false);
 				$state.go('login');
 				//$window.location.reload();
