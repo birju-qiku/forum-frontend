@@ -26,6 +26,7 @@
 						<li style="cursor:pointer" ng-click="replies.fillReply($event,reply.posted_by)" class="pull-right comment-width-65"><i class="fa fa-reply padding-right-5"></i>Reply</li>
 						<li ng-if="reply.likes.length" style="pull-left">{{reply.likes.length}}<i style="padding-left:10px" class="fa fa-thumbs-up"></i></li>
 						<li ng-if="!reply.likes.length"  style="pull-left">0<i style="padding-left:10px" class="fa fa-thumbs-up"></i></li>
+						<li style="padding-left:10px" class="pull-left">{{reply.created_at | date:'mediumDate'}} | {{reply.created_at | date:'shortTime'}}</li>
 					</ul>
 				</div>
 			</div>
