@@ -21,8 +21,11 @@
 				<p class="actualDesc" ng-bind-html="reply.desc" class="non-quoted"></p>
 				<div>
 					<ul>
-						<!--<li like-btn ng-click="replies.like(reply._id)" style="cursor:pointer" class="pull-right "><i class="fa fa-heart padding-right-5"></i>Like</li> -->
+						<li ng-if="!replies.checkLike(replies.userid,reply.likes) && !reply.up" like-btn ng-click="replies.like(reply._id,reply)" style="cursor:pointer" class="pull-right "><i class="fa fa-heart padding-right-5"></i>Like</li>
+						<li ng-if="replies.checkLike(replies.userid,reply.likes) || reply.up" like-btn style="color:#aaabae;cursor:pointer" class="pull-right "><i class="fa fa-heart padding-right-5"></i>Liked</li>
 						<li style="cursor:pointer" ng-click="replies.fillReply($event,reply.posted_by)" class="pull-right comment-width-65"><i class="fa fa-reply padding-right-5"></i>Reply</li>
+						<li ng-if="reply.likes.length" style="pull-left">{{reply.likes.length}}<i style="padding-left:10px" class="fa fa-thumbs-up"></i></li>
+						<li ng-if="!reply.likes.length"  style="pull-left">0<i style="padding-left:10px" class="fa fa-thumbs-up"></i></li>
 					</ul>
 				</div>
 			</div>

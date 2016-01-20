@@ -15,6 +15,7 @@
 		if(localStorage.getItem('passed')){
 			var hash = localStorage.getItem('hash');
 			$http.get(apiUrl+'/user').success(function(data){
+				localStorage.setItem('userid',data._id);
 				if(data.src == "fb"){
 					$rootScope.$emit('loggedIn',{username:data.name,image:data.image});	
 				}else{

@@ -1,8 +1,9 @@
 (function(){
 	angular.module('qiku').controller('RepliesController',repliesController);
-	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope','Upload','$sce','$sanitize'];
-	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope,Upload,$sce,$sanitize){
+	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope','Upload','$sce','$sanitize','$filter'];
+	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope,Upload,$sce,$sanitize,$filter){
 		var rc = this
+		rc.userid = localStorage['userid'];
 		function userDetails(){
 			return $q(function(resolve,reject){
 				$http.get(apiUrl+'/user').success(function(data){
@@ -55,8 +56,11 @@
 			$("#replyToThread").htmlcode(desc);
 			$("html, body").animate({ scrollTop: $(document).height() }, 1000);
 		}
-		rc.like = function(id){
+		rc.like = function(id,stack){
 			$http.put(apiUrl+'/like/'+id).then(function(data){
+				if(!stack.likes){stack.likes = []}
+				stack.likes.push({userid:id});
+				stack.up = true;
 				toastr.success("Liked!", "Qiku Forums", {"iconClass": 'customer-info'});
 			});
 		}
@@ -99,6 +103,16 @@
 	                                         evt.loaded / evt.total));
 	            });
 	        }   
+	    },
+	    rc.checkLike = function(needle,haystack){
+	    	console.log(needle);
+	    	console.log(haystack);
+	    	var found = {};
+	    	found = $filter('filter')(haystack, {userid: needle}, true);
+	    	if(!$.isEmptyObject(found)){
+	    		return true;
+	    	}
+	    	return false;
 	    }
 		//get route param fetch and create a promise :)
 		function getThreadId(){
