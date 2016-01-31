@@ -130,6 +130,24 @@
 		  	controller:'LatestController',
 		  	controllerAs:'forum'
 		})
+		.state('home.qterra',{
+			url:'qterra',
+	    	templateUrl:'/app/qterra.html',
+		  	controller:'QterraController',
+		  	controllerAs:'forum'
+		})
+		.state('home.os',{
+			url:'os',
+	    	templateUrl:'/app/os.html',
+		  	controller:'OsController',
+		  	controllerAs:'forum'
+		})
+		.state('home.faq',{
+			url:'faq',
+	    	templateUrl:'/app/faq.html',
+		  	controller:'FaqController',
+		  	controllerAs:'forum'
+		})
 		.state('home.newThread',{
 			url:'new-thread',
 	    	templateUrl:'/app/new-thread.html',

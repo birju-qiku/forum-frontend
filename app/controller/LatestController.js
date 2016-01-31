@@ -3,11 +3,7 @@
 	latestController.$inject = ['$scope','$http','$state','apiUrl','$stateParams','$rootScope'];
 	function latestController($scope,$http,$state,apiUrl,$stateParams,$rootScope){
 		var param = $state.href($state.current.name, $state.params);
-		if(param == '/all'){
-			$('.tab-label-2 > a').trigger('click');
-		}else if(param == '/hot'){
-			$('.tab-label-1 > a').trigger('click');
-		}
+		$('.tab-label-2 > a').trigger('click');
 		var hc = this;
 		hc.$state = $state;
 		hc.fbshare = function(link){
