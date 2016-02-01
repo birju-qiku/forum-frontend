@@ -141,6 +141,38 @@ angular.module('qiku').service('shareVariables', function () {
         return promise;
     };
 }])
+/*.factory('commonFunctions',['$httpProvider',function($httpProvider){
+
+    var injectToken = function(){
+        $httpProvider.interceptors.push(function ($q) {
+        var hash = localStorage.getItem('hash');
+           return {
+               'request': function (config) {
+                console.log(config.url);
+                if(config.url.indexOf('localhost:8080') !== -1){
+                  if(config.url.indexOf('&') !== -1){
+                    config.url = config.url + '&hash='+hash;
+                  }else{
+                    config.url = config.url + '?hash='+hash;
+                  }
+                  //config.url = config.url + '&hash='+hash;  
+                }/*else if(config.url.indexOf('&') !== -1){
+                  config.url = config.url + '&hash='+hash;
+                }else{
+                  config.url = config.url + '?hash='+hash;
+                }
+
+                   return config;
+               }
+
+           }
+       });  
+    }
+    var commonFunctions = {
+      injectToken:injectToken
+    }
+    return commonFunctions;
+}])*/
 .directive('errSrc', function() {
   return {
     link: function(scope, element, attrs) {

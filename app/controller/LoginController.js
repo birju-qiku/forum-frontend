@@ -35,7 +35,7 @@
 				localStorage.setItem('passed',true);
 				localStorage.setItem('hash',data.data.token);
 				localStorage.setItem('userid',data.data._id);
-				$http.defaults.headers.common['hash'] = data.data.token;
+				//$http.defaults.headers.common['hash'] = data.data.token;
 				$rootScope.$emit('loggedIn',{username:data.data.username,image:''})
 				$state.go('home');
 				toastr.success("Welcome to Qiku Forums", "Qiku Forums", {"iconClass": 'customer-info'});

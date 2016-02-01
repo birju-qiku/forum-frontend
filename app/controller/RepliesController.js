@@ -107,8 +107,6 @@
 	        }   
 	    },
 	    rc.checkLike = function(needle,haystack){
-	    	console.log(needle);
-	    	console.log(haystack);
 	    	var found = {};
 	    	if(typeof(needle) === 'undefined'){needle = 'string'}
 	    	found = $filter('filter')(haystack, {userid: needle}, true);

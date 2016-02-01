@@ -1,17 +1,36 @@
 (function(){
-	angular.module('qiku',['ui.router','angularUtils.directives.dirPagination','doowb.angular-pusher','ui.bootstrap','ngSanitize','ngFileUpload'])
+	angular.module('qiku',['ui.router','angularUtils.directives.dirPagination',/*'doowb.angular-pusher',*/'ui.bootstrap','ngSanitize','ngFileUpload'])
 	.config(routers)
-	.config(['PusherServiceProvider',
+	/*.config(['PusherServiceProvider',
 	  function(PusherServiceProvider) {
 	    PusherServiceProvider
 	    .setToken('f2b00087f977c39298f4')
 	    .setOptions({});
 	  }
-	])
+	])*/
+	.config(function ($httpProvider) {
+         $httpProvider.interceptors.push(function ($q) {
+             return {
+                 'request': function (config) {
+                 	var hash = localStorage.getItem('hash');
+                 	if(config.url.indexOf('localhost:8080') !== -1 || config.url.indexOf('inforum.qiku.com') !== -1){
+                 		if(config.url.indexOf('&') !== -1){
+                 			config.url = config.url + '&hash='+hash;
+                 		}else{
+                 			config.url = config.url + '?hash='+hash;
+                 		}
+                 	}
+                    return config;
+                 }
+
+             }
+         });
+     })
 	.constant('apiUrl',config.apiUrl)
 	//.constant('apiUrl','http://localhost:8080')
 	.run(['$http','$rootScope','apiUrl','$window','fbAuth',function($http,$rootScope,apiUrl,$window,fbAuth){
-		$http.defaults.headers.common['hash'] = localStorage.getItem('hash');
+		//$http.defaults.headers.common['hash'] = localStorage.getItem('hash');
+		//$http.defaults.headers.common["Content-Type"] = "text/plain";
 		if(localStorage.getItem('passed')){
 			var hash = localStorage.getItem('hash');
 			$http.get(apiUrl+'/user').success(function(data){
@@ -67,7 +86,7 @@
 	.controller('headerController',headerCtrlFunction)
 	.controller('mainController',mainCtrlFunction);
 	headerCtrlFunction.$inject = ['$scope','$rootScope','$http','$state','apiUrl','$timeout','$window'];
-	mainCtrlFunction.$inject = ['$scope','$rootScope','Pusher','$state'];
+	mainCtrlFunction.$inject = ['$scope','$rootScope',/*'Pusher',*/'$state'];
 	function mainCtrlFunction($scope,$rootScope,Pusher,$state){
 	    /*Pusher.subscribe('test_channel', 'my_event', function (data) {
 	    	toastr.options = {
