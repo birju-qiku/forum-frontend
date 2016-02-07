@@ -31,8 +31,5 @@
 				hc.totalThreads = data.count;
 			});
 	    }
-		$http.get(apiUrl+'/stats').success(function(data){
-			hc.stats = data.stats;
-		});
 	}
 })();

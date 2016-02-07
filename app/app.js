@@ -14,7 +14,7 @@
                  'request': function (config) {
                  	var hash = localStorage.getItem('hash');
                  	if(config.url.indexOf('localhost:8080') !== -1 || config.url.indexOf('inforum.qiku.com') !== -1){
-                 		if(config.url.indexOf('&') !== -1){
+                 		if(config.url.indexOf('?') !== -1){
                  			config.url = config.url + '&hash='+hash;
                  		}else{
                  			config.url = config.url + '?hash='+hash;
@@ -28,12 +28,13 @@
      })
 	.constant('apiUrl',config.apiUrl)
 	//.constant('apiUrl','http://localhost:8080')
-	.run(['$http','$rootScope','apiUrl','$window','fbAuth',function($http,$rootScope,apiUrl,$window,fbAuth){
+	.run(['$http','$rootScope','apiUrl','$window','fbAuth','shareVariables',function($http,$rootScope,apiUrl,$window,fbAuth,shareVariables){
 		//$http.defaults.headers.common['hash'] = localStorage.getItem('hash');
 		//$http.defaults.headers.common["Content-Type"] = "text/plain";
 		if(localStorage.getItem('passed')){
 			var hash = localStorage.getItem('hash');
 			$http.get(apiUrl+'/user').success(function(data){
+				shareVariables.set('userData',data);
 				localStorage.setItem('userid',data._id);
 				if(data.src == "fb"){
 					$rootScope.$emit('loggedIn',{username:data.name,image:data.image});	
@@ -147,7 +148,7 @@
 			url:'all',
 	    	templateUrl:'/app/all.html',
 		  	controller:'LatestController',
-		  	controllerAs:'forum'
+		  	controllerAs:'latest'
 		})
 		.state('home.qterra',{
 			url:'qterra',
@@ -159,13 +160,13 @@
 			url:'os',
 	    	templateUrl:'/app/os.html',
 		  	controller:'OsController',
-		  	controllerAs:'forum'
+		  	controllerAs:'os'
 		})
 		.state('home.faq',{
 			url:'faq',
 	    	templateUrl:'/app/faq.html',
 		  	controller:'FaqController',
-		  	controllerAs:'forum'
+		  	controllerAs:'faq'
 		})
 		.state('home.newThread',{
 			url:'new-thread',
@@ -174,6 +175,12 @@
 		})
 		.state('home.replies',{
 			url: 'replies/:id',
+	    	templateUrl:'/app/replies.html',
+		  	controller:'RepliesController',
+		  	controllerAs:'replies'
+		})
+		.state('home.pagereplies',{
+			url: 'replies/:id/:page',
 	    	templateUrl:'/app/replies.html',
 		  	controller:'RepliesController',
 		  	controllerAs:'replies'

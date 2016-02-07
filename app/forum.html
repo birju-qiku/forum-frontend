@@ -6,7 +6,7 @@
 								<div class="search-panel">
 									<form action="#" id="search_box">
 										<div class="wrapper">
-											 <input typeahead-wait-ms=500 ng-model="asyncSelected" placeholder="Type to search" uib-typeahead="thread as thread.title for thread in forum.getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" type="text" typeahead-template-url="customTemplate.html"/>
+											 <input typeahead-wait-ms=100 ng-model="asyncSelected" placeholder="Type to search" uib-typeahead="thread as thread.title for thread in forum.getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" type="text" typeahead-template-url="customTemplate.html"/>
 											 <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
 											    <div ng-show="noResults">
 											      <i class="glyphicon glyphicon-remove"></i> No Results Found

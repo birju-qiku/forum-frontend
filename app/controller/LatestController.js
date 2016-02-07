@@ -20,9 +20,9 @@
         	getResultsPage(limit,offset);
     	};
     	hc.pageChanged(1);
-    	hc.pagination = {
+    	/*hc.pagination = {
 		    current: 1
-		};
+		};*/
     	function getResultsPage(limit,offset) {
         // this is just an example, in reality this stuff should be in a service
         	$http.get(apiUrl+'/thread?limit='+limit+'&offset='+offset).success(function(data){
@@ -31,8 +31,5 @@
 				hc.totalThreads = data.count;
 			});
 	    }
-		$http.get(apiUrl+'/stats').success(function(data){
-			hc.stats = data.stats;
-		});
 	}
 })();

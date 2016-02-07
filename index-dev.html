@@ -90,8 +90,8 @@
 							<li><i class="fa fa-sign-in"></i></li>
 						</ul>
 						<ul ng-class="{'display-none':!username}">
-							<li><a href="#"><img height=30 width=30 style="border-radius:50%" ng-src="\{{image}}" err-src="/app/assets/img/noimage.jpg" ></a></li>
-							<li>\{{username}}</li>
+							<li><a ui-sref="profile"><img height=30 width=30 style="border-radius:50%" ng-src="\{{image}}" err-src="/app/assets/img/noimage.jpg" ></a></li>
+							<li style="cursor:pointer" ui-sref="profile">\{{username}}</li>
 							<li><i class="fa fa-user"></i></li>
 							<li><a style="cursor:pointer" ng-click="logout()">Logout</a></li>
 							<li><i class="fa fa-sign-out"></i></li>

@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku').controller('RepliesController',repliesController);
-	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope','Upload','$sce','$sanitize','$filter'];
-	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope,Upload,$sce,$sanitize,$filter){
+	repliesController.$inject = ['$scope','$http','$q','$stateParams','apiUrl','$rootScope','Upload','$sce','$sanitize','$filter','shareVariables'];
+	function repliesController($scope,$http,$q,$stateParams,apiUrl,$rootScope,Upload,$sce,$sanitize,$filter,shareVariables){
 		var rc = this
 		rc.userid = localStorage['userid'];
 		function userDetails(){
@@ -66,6 +66,40 @@
 				stack.up = false;
 			});
 		}
+		rc.watch = function(id,title,link){
+			rc.watchup = true;
+			var watchData = {
+				threadId:id,
+				title:title,
+				link:link
+			}
+			$http.post(apiUrl+'/watch-thread',watchData).then(function(data){
+				//if(!stack.likes){stack.likes = []}
+				//stack.watch.push({id:id});
+				var userData = shareVariables.get('userData');
+				userData.watching.push(watchData);
+				shareVariables.set('userData',userData);
+				toastr.success("Watching this thread!", "Qiku Forums", {"iconClass": 'customer-info'});
+			},function(err){
+				rc.watchup = false;
+			});
+		}
+		rc.unwatch = function(id){
+			rc.watchup = false;
+			var data = {
+				threadId:id
+			}
+			$http.post(apiUrl+'/unwatch-thread',data).then(function(data){
+				//if(!stack.likes){stack.likes = []}
+				//stack.watch.push({id:id});
+				var userData = shareVariables.get('userData');
+				userData.watching.pop(data.threadId);
+				shareVariables.set('userData',userData);
+				toastr.success("Unwatching this thread!", "Qiku Forums", {"iconClass": 'customer-info'});
+			},function(err){
+				rc.watchup = true;
+			});
+		}
 		rc.uploadcsv = function(file){
         //console.log('file is ' + JSON.stringify(file));
         	var fd = new FormData();
@@ -115,6 +149,18 @@
 	    	}
 	    	return false;
 	    }
+	    rc.checkWatch = function(needle){
+	    	var haystack = shareVariables.get('userData');
+	    	var found = {};
+	    	if(typeof(needle) === 'undefined'){needle = 'string'}
+	    	if(haystack){
+	    		found = $filter('filter')(haystack.watching, {threadId: needle}, true);
+	    	}
+	    	if(!$.isEmptyObject(found)){
+	    		return true;
+	    	}
+	    	return false;
+	    }
 		//get route param fetch and create a promise :)
 		function getThreadId(){
 			return $q(function(resolve,reject){
@@ -125,13 +171,31 @@
 				})
 			})	
 		}
-		var getThreadPromise = getThreadId();
+		/*var getThreadPromise = getThreadId();
 		getThreadPromise.then(function(){
 			$http.get(apiUrl+'/reply/'+rc.threadDetails._id+'?limit=10&offset=0').success(function(data){
 				rc.replies = data.replies;
 				//$scope.htmlReady();
 			})
-		})
+		})*/
+		//copied
+		rc.totalReplies = 0;
+    	rc.repliesPerPage = 15;
+		rc.pageChanged = function(newPage) {
+			var limit = newPage * 15;
+			var offset  = limit - rc.repliesPerPage;
+        	getResultsPage(limit,offset);
+    	};
+    	rc.pageChanged(1);
+    	function getResultsPage(limit,offset) {
+        	var getThreadPromise = getThreadId();
+        	getThreadPromise.then(function(){
+				$http.get(apiUrl+'/reply/'+rc.threadDetails._id+'?limit='+limit+'&offset='+offset).success(function(data){
+					rc.replies = data.replies;
+					rc.totalReplies = data.totalReplies;
+				});
+			})
+	    }
 		var wbbOpt = {
 			buttons: "bold,italic,underline,|,img,link"
 		}

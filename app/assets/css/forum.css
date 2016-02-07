@@ -584,6 +584,13 @@ button.wide-red-btn{
 }
 .white-text {color: #ffffff !important;}
 .border-less-bottom {border-bottom: 0px !important;}
+#watchThread{
+	float: right;
+	background-color: #eb5b5f;
+	color: white;
+	margin-right: 32px;
+	padding: 0 5px;
+}
 /*profile styling end here*/
 
 /* right column ends here */

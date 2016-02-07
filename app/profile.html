@@ -4,7 +4,7 @@
 				<!-- code section outer div -->
 		<div class="main-outer-div outer-div-zero-bottom-pad">
 			<!--left side div -->
-			<div class="left-profile-div user-profile-section Drop">
+			<div class="left-profile-div user-profile-section Drop" style="margin-top:-25px">
 				<!--tabs view goes here -->
 				<section class="tabs">
 				<div class="clear-shadow"></div>
@@ -12,12 +12,12 @@
 					<!--1st comment -->
 					<div class="comment-outer">
 							<div class="comment-inner-left-profile Drop">
-								<img src="http://img12.deviantart.net/daf4/i/2008/255/a/f/avatar_icon_by_pharaun_mizzrym.jpg"/>
+								<img ng-src="{{profile.userData.image}}" err-src="/app/assets/img/noimage.jpg" / >
 							</div>
 							<div class="comment-inner-right border-less-bottom Drop">
-								<h2 class="userText ">
-									<a href="#" class=" white-text">birju112</a></h2>
-								<h2 class="white-text">Level: Pluto</h2>
+								<h2 class="userText" style="margin-top:25px !important">
+									<a href="#" class=" white-text">{{profile.userData.username}}</a></h2>
+									<!--<h2 class="white-text">Level: {{profile.userstats.rank}}</h2>-->
 							</div>
 				     </div>
 				     <!--1st comment ends here -->
@@ -28,14 +28,15 @@
 			</div>
 			<!--left div ends here -->
 			<!--right side div -->
-			<div class="right-profile-div Drop" >
+			<div class="right-profile-div Drop" style="margin-top:-25px">
 			<!--first category goes here -->
 				<div class="panel-category  panel-category-profile panel-margin-top-zero">
 					<div class="panel-category-body user-profile-section">
 						<ul>
-							<li><span class="pull-left white-text">Messages</span></li>
-							<li><span class="pull-left white-text">Like</span></li>
-							<li><span class="pull-left white-text">Points</span></li>
+							<li><span class="pull-left white-text">Threads : {{profile.userstats.threadCount}}</span></li>
+							<li><span class="pull-left white-text">Replies : {{profile.userstats.replyCount}}</span></li>
+							<li><span class="pull-left white-text">Likes : {{profile.userstats.likeCount}}</span></li>
+							<!--<li><span class="pull-left white-text">Points : Coming Soon</span></li>-->
 						</ul>
 					</div>
 				</div>
@@ -55,9 +56,7 @@
 					<div class="panel-category-header">YOUR ACCOUNT</div>
 					<div class="panel-category-body">
 						<ul>
-							<li><span class="pull-left">Personal Details</span> </li>
-							<li><span class="pull-left">Recent Activity</span> </li>
-							<li><span class="pull-left">Notification</span> </li>
+							<li><span class="pull-left">Notifications</span> </li>
 						</ul>
 					</div>
 				</div>
@@ -71,49 +70,27 @@
 					<div class="clear-shadow"></div>
 					<!-- comment section goes here -->
 					<!--1st comment -->
-					<h2>Notifications</h2>
-					<div class="content comment-outer">
+					<h2 style="margin-left:45px">Notifications</h2>
+					<div class="content comment-outer" dir-paginate="update in profile.updates | itemsPerPage:profile.threadsPerPage" total-items="profile.totalUpdates" current-page="profile.pagination.current">
 							<div class="comment-inner-left">
-								<img src="http://img12.deviantart.net/daf4/i/2008/255/a/f/avatar_icon_by_pharaun_mizzrym.jpg"/>
+								<img ng-src="{{update.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
 								<h5 class="userText">
-									<a href="#" class="username">birju112</a>
-									<em class="userTitle">Level: test</em>
+									<a href="#" class="username">{{update.posted_by}}</a>
 									</h5>
 							</div>
 							<div class="comment-inner-right">
 								<div>
-									<h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+									<h2 style="font-size:14px">{{update.posted_by}} replied in the thread <a style="color:#eb5b5f" href="/replies/{{profile.hashStack[update.thread_id].title}}"> {{profile.hashStack[update.thread_id].link}}</a></h2>
+									<p trim-text class="actualDesc" ng-bind-html="update.desc" class="non-quoted"></p>
 									<ul>
-										<li class="comment-width-65"><i class="fa fa-eye"></i> 234</li>
-										<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> 234</li>
-										<li class="yellow-button-view">ANY SPECIAL TAG HERE</li>
-										<li class="pull-right">Sep 15 | 22:00</li>
+										<li class="pull-right">{{update.created_at | date:'mediumDate'}} | {{update.created_at | date:'shortTime'}}</li>
 									</ul>
 								</div>
 							</div>
 				     </div>
-				     <!--1st comment ends here -->
-				     <!--2 comment -->
-				     <div class="content comment-outer">
-							<div class="comment-inner-left">
-								<img src="http://img12.deviantart.net/daf4/i/2008/255/a/f/avatar_icon_by_pharaun_mizzrym.jpg"/>
-								<h5 class="userText">
-									<a href="#" class="username">birju112</a>
-									<em class="userTitle">Level: test</em>
-									</h5>
-							</div>
-							<div class="comment-inner-right">
-								<h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
-								<div>
-									<ul>
-										<li class="comment-width-65"><i class="fa fa-eye"></i> 234</li>
-										<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> 234</li>
-										<li class="blue-button-view">ANY SPECIAL TAG HERE</li>
-										<li class="pull-right">Sep 15 | 22:00</li>
-									</ul>
-								</div>
-							</div>
-				     </div>
+				     <div class="pagination">
+				    	<dir-pagination-controls on-page-change="profile.pageChanged(newPageNumber)"></dir-pagination-controls>
+					</div>
 				     <!--2nd comment ends here -->
 					<!-- ends here -->
 				</section>
@@ -125,10 +102,13 @@
 			<div class="right-main-div-profile Drop">
 				<!-- cta 360 -->
 				<div class="right-cta-360">
-					<a href="#">Extended Warranty</a>
-			</div>
+					<a ui-sref="home.newThread">New Thread</a>
+				</div>
+				<div class="right-cta-360" style="margin-top:10px">
+					<a ui-sref="home.warranty">Extended Warranty</a>
+				</div>
 			<!--cta ends here -->
-			<!--first category goes here -->
+			<!--first category goes here 
 				<div class="panel-category">
 					<div class="panel-category-header">categories</div>
 					<div class="panel-category-body">

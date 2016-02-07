@@ -198,3 +198,13 @@ angular.module('qiku').service('shareVariables', function () {
     }
   }
 })
+.directive('trimText', function() { 
+    return {
+        priority: 10, 
+        link: function(scope,element,attrs) {
+            scope.$watch(attrs.ngBind , function(newvalue) {
+              //console.log($(element).html());
+            });           
+        }
+    };      
+ });

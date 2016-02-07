@@ -2,12 +2,14 @@
 	<!-- comment section goes here -->
 	<!--1st comment -->
 	<h2 style="padding-left:15px">{{replies.threadDetails.title}}</h2>
+	<div style="cursor:pointer" id="watchThread" ng-if="!replies.checkWatch(replies.threadDetails._id)" ng-click="replies.watch(replies.threadDetails._id,replies.threadDetails.link,replies.threadDetails.title)">+ Watch Thread</div>
+	<div  ng-if="replies.checkWatch(replies.threadDetails._id)" style="background-color:#aaabae;cursor:pointer" id="watchThread" ng-click="replies.unwatch(replies.threadDetails._id)">- Unwatch</div>
 	<div class="close-outer" ng-if="replies.threadDetails.status == 2">
 		<div class="close-inner">
 			Thread closed by <i class="fa fa-users"></i> Community
 		</div>
 	</div>
-	<div class="content comment-outer" dir-paginate="reply in replies.replies | orderBy:'created_at' | itemsPerPage:20">
+	<div class="content comment-outer" dir-paginate="reply in replies.replies | orderBy:'created_at' | itemsPerPage:replies.repliesPerPage" total-items="replies.totalReplies">
 			<div class="comment-inner-left">
 				<img ng-src="{{reply.posted_by_image}}" err-src="/app/assets/img/noimage.jpg" / >
 				<h5 class="userText">
@@ -41,6 +43,6 @@
     <div style="font:smaller">{{replies.errFile.$error}} {{replies.errFile.$errorParam}}</div>     
   {{errorMsg}}
 	 <div class="pagination">
-    	<dir-pagination-controls></dir-pagination-controls>
+    	<dir-pagination-controls on-page-change="replies.pageChanged(newPageNumber)"></dir-pagination-controls>
 	</div>
 </div>
