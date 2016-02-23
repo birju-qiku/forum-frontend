@@ -1,7 +1,7 @@
 (function(){
 	angular.module('qiku').controller('NewThreadController',newThreadController);
-	newThreadController.$inject = ['$scope','$http','$state','apiUrl','$q'];
-	function newThreadController($scope,$http,$state,apiUrl,$q){
+	newThreadController.$inject = ['$scope','$http','$state','apiUrl','$q','Upload'];
+	function newThreadController($scope,$http,$state,apiUrl,$q,Upload){
 		var nt = this;
 		function userDetails(){
 			return $q(function(resolve,reject){
@@ -37,6 +37,31 @@
 				})
 			})
 		}
+	    nt.uploadFiles = function(file, errFiles) {
+	    	$('#threadAttach').text('Attaching');
+	        nt.f = file;
+	        nt.errFile = errFiles && errFiles[0];
+	        if (file) {
+	            file.upload = Upload.upload({
+	                url: apiUrl+'/attach',
+	                data: {attachment: file}
+	            });
+
+	            file.upload.then(function (response) {
+	                var tmp = $("#newThread").htmlcode();
+	        		$("#newThread").htmlcode(tmp+"<br /><img class='squezeimage' src="+response.data.url+" />");
+	        		$('#threadAttach').text('Attach Image');
+	            }, function (response) {
+	            	$('#threadAttach').text('Attach Image');
+	                if (response.status > 0){
+	                	nt.errorMsg = response.status + ': ' + response.data;
+	                }
+	            }, function (evt) {
+	                file.progress = Math.min(100, parseInt(100.0 * 
+	                                         evt.loaded / evt.total));
+	            });
+	        }   
+	    }
 		var wbbOpt = {
 			buttons: "bold,italic,underline,|,img,link"
 		}

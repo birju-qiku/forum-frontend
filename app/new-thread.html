@@ -4,12 +4,19 @@
 				<input class="new-thread-title" type="text" name="title" placeholder="Title" autofocus ng-model="newThread.title">
 				<textarea id="newThread"></textarea>
 				<div style='color:#eb5b5f;padding-left:10px;margin-bottom:10px'>Select Category</div>
-				<select style="width:30%;margin-left:10px" ng-model="newThread.category">
+				<select style="width:30%;margin-left:10px;display:block" ng-model="newThread.category">
 					<option value="general">General</option>
 					<option value="360os">360 OS</option>
 					<option value="qterra">Q Terra</option>
 					<option value="qluna">Q Luna</option>
 				</select>
-				<button id="addThread" ng-disabled="!newThread.title || newThread.postThreadDisabled" style="display:block;margin-top:30px" class="normal-red-btn" ng-click="newThread.post()">Post</button>
+				<button id="addThread" ng-disabled="!newThread.title || newThread.postThreadDisabled" style="display:block;margin-top:20px;float:left;" class="normal-red-btn" ng-click="newThread.post()">Post</button>
+				<div class="fileuploadouter" style="margin-top:10px !important">
+			       <button id="threadAttach" class="wide-red-btn" type="file" ngf-select="newThread.uploadFiles($file, $invalidFiles)"
+			          accept="image/*" ngf-max-size="3MB">Attach Image</button>
+			       <!--<input type="file" name="chatUpload" file-model="myFile" class="fileuploadinput ng-isolate-scope" callback-fn="replies.uploadcsv(file)"> -->
+			    </div>
+    <div style="font:smaller">{{replies.errFile.$error}} {{replies.errFile.$errorParam}}</div>     
+  {{errorMsg}}
 			</div>
 </section>
