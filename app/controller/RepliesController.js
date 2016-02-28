@@ -197,7 +197,7 @@
 			})
 	    }
 		var wbbOpt = {
-			buttons: "bold,italic,underline,|,img,link"
+			buttons:  "bold,italic,underline,strike,sup,sub,|,img,link,|,numlist,|,fontcolor,fontsize,fontfamily,|, quote,table,removeFormat"
 		}
 		$(function() {
 		  $("#replyToThread").wysibb(wbbOpt);
