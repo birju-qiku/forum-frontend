@@ -104,8 +104,8 @@ angular.module('qiku').service('shareVariables', function () {
     restrict:'A',
     link:function(scope,element,scope){
       $(element).on('click',function(){
-        $('.panel-color-toggle').css({'background-color':'#eb5b5f','color':'#ffffff'});
-        $(element).css({'background-color':'#ffffff','color':'#eb5b5f'});
+        $('.panel-color-toggle').css({'background-color':'#eb5b5f','color':'#ffffff','border-right':'1px solid #db3224'});
+        $(element).css({'background-color':'#ffffff','color':'#eb5b5f','border-right':'none'});
       })
     }
   }

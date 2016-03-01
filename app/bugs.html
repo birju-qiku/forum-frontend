@@ -1,0 +1,28 @@
+<div>
+	<div class="content comment-outer" dir-paginate="thread in bugs.threads | itemsPerPage:bugs.threadsPerPage" total-items="bugs.totalThreads" >
+			<div class="comment-inner-left">
+				<img ng-src="{{thread.posted_by_image}}" err-src="/app/assets/img/noimage.jpg"  / >
+				<h5 class="userText">
+					<a href="#" class="username">{{thread.posted_by}}</a>
+					<em ng-if="!thread.stand" class="userTitle">Level: Pluto</em>
+					<div ng-if="thread.stand == 'clear'" style="background-color:#eb5b5f;width:65px;margin:0 auto;color:white">Team Qiku</div>
+					<div ng-if="thread.stand == 'moderator'" style="background-color:#eb5b5f;width:65px;margin:0 auto;color:white">Moderator</div>
+				</h5>
+			</div>
+			<div class="comment-inner-right">
+				<a ng-href="{{bugs.$state.href('home.replies',{id:thread.link})}}"><h2>{{thread.title}}</h2> </a>
+				<div>
+					<ul>
+						<li class="comment-width-65"><i class="fa fa-eye"></i> {{thread.viewCount}}</li>
+						<li class="comment-width-65"><i class="fa fa-stack-exchange"></i> {{thread.replyCount}}</li>
+						<li class="yellow-button-view">{{thread.category}}</li>
+						<li><a class="fb-share-btn" ng-click="bugs.fbshare(thread.link)" href="#"><i class="fa fa-facebook fb-share-btn-i"></i>Share</a></li>
+						<li class="pull-right">{{thread.created_at | date:'mediumDate'}} | {{thread.created_at | date:'shortTime'}}</li>
+					</ul>
+				</div>
+			</div>
+	</div>
+	<div class="pagination">
+    	<dir-pagination-controls on-page-change="bugs.pageChanged(newPageNumber)"></dir-pagination-controls>
+	</div>
+</div>

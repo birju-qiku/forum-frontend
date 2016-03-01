@@ -162,6 +162,7 @@
 	font-weight: bold;
 	text-align: center;
 	font-size: 12px;
+	border-right: 1px solid #db3224;
 }
 
 .tabs > ul > li a:after {

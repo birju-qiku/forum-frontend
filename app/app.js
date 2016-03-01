@@ -168,6 +168,18 @@
 		  	controller:'FaqController',
 		  	controllerAs:'faq'
 		})
+		.state('home.guide',{
+			url:'guide',
+	    	templateUrl:'/app/guide.html',
+		  	controller:'GuideController',
+		  	controllerAs:'guide'
+		})
+		.state('home.bugs',{
+			url:'bugs',
+	    	templateUrl:'/app/bugs.html',
+		  	controller:'BugsController',
+		  	controllerAs:'bugs'
+		})
 		.state('home.newThread',{
 			url:'new-thread',
 	    	templateUrl:'/app/new-thread.html',
